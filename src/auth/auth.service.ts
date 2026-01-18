@@ -38,13 +38,12 @@ export class AuthService {
       });
     }
 
-    // 🔴 deactivate existing session
-    await this.prismaService.session.updateMany({
+    // 🔴 delete existing sessions for this device
+    await this.prismaService.session.deleteMany({
       where: {
         userId: user.id,
-        isActive: true,
+        deviceId,
       },
-      data: { isActive: false },
     });
 
     // 🔐 create new session
@@ -74,6 +73,7 @@ export class AuthService {
       },
       { expiresIn: '15m' },
     );
+
     return { accessToken, refreshToken };
   }
 

@@ -11,6 +11,12 @@ import { UsersService } from 'src/users/users.service';
 import { UserDto } from './dto/user.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Public } from 'src/auth/decorators/public.decorator';
+import {
+  ApiBearerAuth,
+  ApiBody,
+  ApiConsumes,
+  PartialType,
+} from '@nestjs/swagger';
 
 @Controller('users')
 export class UsersController {
@@ -22,7 +28,10 @@ export class UsersController {
     return this.usersService.createUser(userDto);
   }
 
+  @ApiBearerAuth('access-token')
   @Patch('update/:id')
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({ type: PartialType<UserDto> })
   @UseInterceptors(FileInterceptor('profilePic'))
   updateUser(
     @UploadedFile() profilePic: Express.Multer.File,

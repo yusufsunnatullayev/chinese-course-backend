@@ -41,7 +41,7 @@ async function bootstrap() {
       'http://localhost:3000',
       'https://mini-udemy-frontend.vercel.app',
       // Railway production URL (replace with your actual app URL)
-      'https://<your-app>.up.railway.app',
+      'http://chinese-course-backend-production.up.railway.app/',
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,

@@ -51,15 +51,16 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('Invalid token payload');
     }
 
-    const session = await this.prisma.session.findFirst({
+    const session = await this.prisma.session.findUnique({
       where: {
-        userId,
-        deviceId,
-        isActive: true,
+        userId_deviceId: {
+          userId,
+          deviceId,
+        },
       },
     });
 
-    if (!session) {
+    if (!session || !session.isActive) {
       throw new UnauthorizedException('Session expired or logged in elsewhere');
     }
 

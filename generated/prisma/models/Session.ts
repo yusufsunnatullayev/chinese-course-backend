@@ -205,7 +205,7 @@ export type SessionOrderByWithRelationInput = {
 
 export type SessionWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  userId_isActive?: Prisma.SessionUserIdIsActiveCompoundUniqueInput
+  userId_deviceId?: Prisma.SessionUserIdDeviceIdCompoundUniqueInput
   AND?: Prisma.SessionWhereInput | Prisma.SessionWhereInput[]
   OR?: Prisma.SessionWhereInput[]
   NOT?: Prisma.SessionWhereInput | Prisma.SessionWhereInput[]
@@ -215,7 +215,7 @@ export type SessionWhereUniqueInput = Prisma.AtLeast<{
   isActive?: Prisma.BoolFilter<"Session"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Session"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "id" | "userId_isActive">
+}, "id" | "userId_deviceId">
 
 export type SessionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -313,9 +313,9 @@ export type SessionOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type SessionUserIdIsActiveCompoundUniqueInput = {
+export type SessionUserIdDeviceIdCompoundUniqueInput = {
   userId: string
-  isActive: boolean
+  deviceId: string
 }
 
 export type SessionCountOrderByAggregateInput = {
