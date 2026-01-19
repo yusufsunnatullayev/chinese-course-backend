@@ -116,7 +116,7 @@ export const CourseScalarFieldEnum = {
   author: 'author',
   price: 'price',
   image: 'image',
-  userId: 'userId',
+  description: 'description',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
