@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CourseDto {
-  @ApiProperty({ default: 'Lesson Title 1' })
+  @ApiProperty({ default: 'HSK book 1' })
   @IsString()
   @IsNotEmpty()
   title: string;
