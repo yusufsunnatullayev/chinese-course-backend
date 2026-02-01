@@ -7,13 +7,12 @@ datasource db {
   provider  = "postgresql"
 }
 
-
 model User {
   id           String    @id @default(uuid())
   username     String    @unique
   email        String    @unique
   password     String
-  profilePic   String?
+  roles        Role[]    @default([USER])
   createdAt    DateTime  @default(now()) @map("created_at")
   updatedAt    DateTime  @updatedAt @map("updated_at")
   courses_keys String[]
@@ -58,9 +57,19 @@ model Course {
 model Lesson {
   id        String   @id @default(cuid())
   title     String
+  description String
+  level     String
+  duration  Int
   video     String
+  words     String[]
+  isPublic  Boolean  @default(false)
   courseId  String
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   course    Course   @relation(fields: [courseId], references: [id])
+}
+
+enum Role {
+  USER
+  ADMIN
 }

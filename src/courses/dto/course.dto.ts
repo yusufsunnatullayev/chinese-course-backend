@@ -17,7 +17,10 @@ export class CourseDto {
   @IsNotEmpty()
   price: number;
 
-  @ApiProperty({ default: 'image url' })
+  @ApiProperty({
+    default:
+      'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhklhJiHnTSk2Vmr8TV8DVDL2ykWhYySDDyXLzBgvc9n0k3EnPhyphenhyphen17_iPWMNSvK_cuENT_212lCTJu29IvmU1KC0tRIYL35bh1KfE5r3x1tkcFzY2K9F0xKjY_Z0BVOla4FzmljLeA3BK4/s1748/0001-9316600135_20211005_132636_0000.png',
+  })
   @IsString()
   @IsNotEmpty()
   image: string;

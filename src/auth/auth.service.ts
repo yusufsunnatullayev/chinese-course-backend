@@ -51,6 +51,7 @@ export class AuthService {
       {
         sub: user.id,
         userId: user.id,
+        roles: user.roles,
         deviceId,
       },
       { expiresIn: '7d' },
@@ -69,6 +70,7 @@ export class AuthService {
       {
         sub: user.id,
         userId: user.id,
+        roles: user.roles,
         deviceId,
       },
       { expiresIn: '15m' },
@@ -97,6 +99,7 @@ export class AuthService {
       {
         sub: payload.userId,
         userId: payload.userId,
+        roles: payload.roles,
         deviceId,
       },
       { expiresIn: '15m' },

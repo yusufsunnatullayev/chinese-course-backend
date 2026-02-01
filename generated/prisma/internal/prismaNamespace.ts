@@ -822,7 +822,7 @@ export const UserScalarFieldEnum = {
   username: 'username',
   email: 'email',
   password: 'password',
-  profilePic: 'profilePic',
+  roles: 'roles',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   courses_keys: 'courses_keys'
@@ -870,7 +870,12 @@ export type CourseScalarFieldEnum = (typeof CourseScalarFieldEnum)[keyof typeof 
 export const LessonScalarFieldEnum = {
   id: 'id',
   title: 'title',
+  description: 'description',
+  level: 'level',
+  duration: 'duration',
   video: 'video',
+  words: 'words',
+  isPublic: 'isPublic',
   courseId: 'courseId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -895,14 +900,6 @@ export const QueryMode = {
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
-export const NullsOrder = {
-  first: 'first',
-  last: 'last'
-} as const
-
-export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
-
-
 
 /**
  * Field references
@@ -920,6 +917,20 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'String[]'
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Role[]'
+ */
+export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Role'
+ */
+export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role'>
     
 
 

@@ -1,43 +1,46 @@
 import {
   Body,
   Controller,
+  Delete,
+  Get,
   Param,
-  Patch,
   Post,
-  UploadedFile,
-  UseInterceptors,
+  Put,
 } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
 import { UserDto } from './dto/user.dto';
-import { FileInterceptor } from '@nestjs/platform-express';
 import { Public } from 'src/auth/decorators/public.decorator';
-import {
-  ApiBearerAuth,
-  ApiBody,
-  ApiConsumes,
-  PartialType,
-} from '@nestjs/swagger';
-
+import { ApiBearerAuth } from '@nestjs/swagger';
+import { Roles } from 'src/auth/decorators/roles.decorator';
+import { Role } from 'generated/prisma/enums';
+@Roles(Role.ADMIN)
+@ApiBearerAuth('access-token')
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
-  @Public()
+  @Get()
+  getUsers() {
+    return this.usersService.findAll();
+  }
+
   @Post('create')
   createUser(@Body() userDto: UserDto) {
     return this.usersService.createUser(userDto);
   }
 
-  @ApiBearerAuth('access-token')
-  @Patch('update/:id')
-  @ApiConsumes('multipart/form-data')
-  @ApiBody({ type: PartialType<UserDto> })
-  @UseInterceptors(FileInterceptor('profilePic'))
-  updateUser(
-    @UploadedFile() profilePic: Express.Multer.File,
-    @Param('id') id: string,
-    @Body() userDto: Partial<UserDto>,
-  ) {
-    return this.usersService.updateUser(id, userDto, 'profilePic');
+  @Get(':id')
+  getUserById(@Param('id') id: string) {
+    return this.usersService.findOne(id);
+  }
+
+  @Put('update/:id')
+  updateUser(@Param('id') id: string, @Body() userDto: UserDto) {
+    return this.usersService.updateUser(id, userDto);
+  }
+
+  @Delete(':id')
+  deleteUserById(@Param('id') id: string) {
+    return this.usersService.remove(id);
   }
 }

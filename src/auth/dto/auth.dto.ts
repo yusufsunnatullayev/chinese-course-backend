@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsNotEmpty } from 'class-validator';
 
 export class SignInDto {
-  @ApiProperty()
+  @ApiProperty({ default: 'user' })
   @IsString()
   @IsNotEmpty()
   username: string;
@@ -16,4 +16,16 @@ export class SignInDto {
   @IsString()
   @IsNotEmpty()
   deviceId: string;
+}
+
+export class SignInAdminDto {
+  @ApiProperty({ default: 'admin' })
+  @IsString()
+  @IsNotEmpty()
+  username: string;
+
+  @ApiProperty({ default: 'admin123' })
+  @IsString()
+  @IsNotEmpty()
+  password: string;
 }

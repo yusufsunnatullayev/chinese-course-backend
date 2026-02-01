@@ -17,7 +17,10 @@ export class CoursesService {
   }
 
   findOne(id: string) {
-    return this.prismaService.course.findUnique({ where: { id } });
+    return this.prismaService.course.findUnique({
+      where: { id },
+      include: { lessons: true },
+    });
   }
 
   update(id: string, dto: Partial<CourseDto>) {

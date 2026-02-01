@@ -4,42 +4,43 @@ import {
   Delete,
   Get,
   Param,
-  Patch,
   Post,
+  Put,
 } from '@nestjs/common';
 import { LessonsService } from './lessons.service';
 import { LessonDto } from './dto/lesson.dto';
 import { ApiBearerAuth } from '@nestjs/swagger';
+import { Roles } from 'src/auth/decorators/roles.decorator';
+import { Role } from 'generated/prisma/enums';
 
+@Roles(Role.ADMIN)
+@ApiBearerAuth('access-token')
 @Controller('lessons')
 export class LessonsController {
   constructor(private readonly lessonsService: LessonsService) {}
 
-  @ApiBearerAuth('access-token')
   @Post()
   create(@Body() dto: LessonDto) {
     return this.lessonsService.create(dto);
   }
 
-  @ApiBearerAuth('access-token')
+  @Roles(Role.USER)
   @Get()
   findAll() {
     return this.lessonsService.findAll();
   }
 
-  @ApiBearerAuth('access-token')
+  @Roles(Role.USER)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.lessonsService.findOne(id);
   }
 
-  @ApiBearerAuth('access-token')
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() dto: Partial<LessonDto>) {
+  @Put(':id')
+  update(@Param('id') id: string, @Body() dto: LessonDto) {
     return this.lessonsService.update(id, dto);
   }
 
-  @ApiBearerAuth('access-token')
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.lessonsService.remove(id);

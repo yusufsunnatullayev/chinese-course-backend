@@ -2,12 +2,17 @@ import { ConflictException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import * as bcrypt from 'bcrypt';
 import { UserDto } from './dto/user.dto';
+import { Role } from 'generated/prisma/enums';
 
 const SALT_ROUNDS = 10;
 
 @Injectable()
 export class UsersService {
   constructor(private prismaService: PrismaService) {}
+
+  async findAll() {
+    return await this.prismaService.user.findMany();
+  }
 
   async findOne(id: string) {
     return await this.prismaService.user.findUnique({ where: { id } });
@@ -31,8 +36,8 @@ export class UsersService {
         username: dto.username,
         email: dto.email,
         password: hashedPassword,
-        profilePic: '',
         courses_keys: dto.courses_keys || [],
+        roles: dto.roles ?? [Role.USER],
       },
     });
 
@@ -43,13 +48,25 @@ export class UsersService {
     };
   }
 
-  async updateUser(id: string, dto: Partial<UserDto>, profilePic: string) {
-    return await this.prismaService.user.update({
+  async updateUser(id: string, dto: UserDto) {
+    const data: any = {
+      username: dto.username,
+      email: dto.email,
+      courses_keys: dto.courses_keys,
+      roles: dto.roles,
+    };
+
+    if (dto.password) {
+      data.password = await bcrypt.hash(dto.password, SALT_ROUNDS);
+    }
+
+    return this.prismaService.user.update({
       where: { id },
-      data: {
-        ...dto,
-        profilePic: profilePic || '',
-      },
+      data,
     });
+  }
+
+  async remove(id: string) {
+    return await this.prismaService.user.delete({ where: { id } });
   }
 }
