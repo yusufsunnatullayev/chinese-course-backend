@@ -17,8 +17,10 @@ async function bootstrap() {
 
   // Swagger setup
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
+    .setTitle('Chinese Course Platform')
+    .setDescription(
+      'The API for chinese course platform. The base url is: https://chinese-course-backend-c8cs.onrender.com',
+    )
     .setVersion('1.0')
     .addTag('cats')
     .addBearerAuth(

@@ -12,6 +12,7 @@ import { CourseDto } from './dto/course.dto';
 import { ApiBearerAuth } from '@nestjs/swagger';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { Role } from 'generated/prisma/enums';
+import { Public } from 'src/auth/decorators/public.decorator';
 
 @Roles(Role.ADMIN)
 @ApiBearerAuth('access-token')
@@ -24,7 +25,7 @@ export class CoursesController {
     return this.coursesService.create(dto);
   }
 
-  @Roles(Role.USER)
+  @Public()
   @Get()
   findAll() {
     return this.coursesService.findAll();
