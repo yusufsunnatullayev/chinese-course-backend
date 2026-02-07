@@ -31,7 +31,7 @@ export class CoursesController {
     return this.coursesService.findAll();
   }
 
-  @Roles(Role.USER)
+  @Public()
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.coursesService.findOne(id);
