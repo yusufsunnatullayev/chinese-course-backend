@@ -5,11 +5,11 @@ import {
   Body,
   Param,
   Delete,
-  Put,
+  Patch,
 } from '@nestjs/common';
 import { CoursesService } from './courses.service';
 import { CourseDto } from './dto/course.dto';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody } from '@nestjs/swagger';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { Role } from 'generated/prisma/enums';
 import { Public } from 'src/auth/decorators/public.decorator';
@@ -37,8 +37,15 @@ export class CoursesController {
     return this.coursesService.findOne(id);
   }
 
-  @Put(':id')
-  update(@Param('id') id: string, @Body() dto: CourseDto) {
+  @Roles(Role.USER)
+  @Get('user/:id')
+  findUserCourses(@Param('id') id: string) {
+    return this.coursesService.findUserCourses(id);
+  }
+
+  @ApiBody({ type: CourseDto })
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() dto: Partial<CourseDto>) {
     return this.coursesService.update(id, dto);
   }
 

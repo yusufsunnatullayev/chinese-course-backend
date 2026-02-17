@@ -4,12 +4,12 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
-  Put,
 } from '@nestjs/common';
 import { LessonsService } from './lessons.service';
 import { LessonDto } from './dto/lesson.dto';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody } from '@nestjs/swagger';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { Role } from 'generated/prisma/enums';
 
@@ -36,8 +36,9 @@ export class LessonsController {
     return this.lessonsService.findOne(id);
   }
 
-  @Put(':id')
-  update(@Param('id') id: string, @Body() dto: LessonDto) {
+  @ApiBody({ type: LessonDto })
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() dto: Partial<LessonDto>) {
     return this.lessonsService.update(id, dto);
   }
 

@@ -4,13 +4,14 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Put,
 } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
 import { UserDto } from './dto/user.dto';
 import { Public } from 'src/auth/decorators/public.decorator';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody } from '@nestjs/swagger';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { Role } from 'generated/prisma/enums';
 @Roles(Role.ADMIN)
@@ -34,8 +35,9 @@ export class UsersController {
     return this.usersService.findOne(id);
   }
 
-  @Put('update/:id')
-  updateUser(@Param('id') id: string, @Body() userDto: UserDto) {
+  @ApiBody({ type: UserDto })
+  @Patch('update/:id')
+  updateUser(@Param('id') id: string, @Body() userDto: Partial<UserDto>) {
     return this.usersService.updateUser(id, userDto);
   }
 

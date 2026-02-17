@@ -1,4 +1,8 @@
-import { ConflictException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ConflictException,
+  Injectable,
+} from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import * as bcrypt from 'bcrypt';
 import { UserDto } from './dto/user.dto';
@@ -48,22 +52,29 @@ export class UsersService {
     };
   }
 
-  async updateUser(id: string, dto: UserDto) {
-    const data: any = {
-      username: dto.username,
-      email: dto.email,
-      courses_keys: dto.courses_keys,
-      roles: dto.roles,
-    };
+  async updateUser(id: string, dto: Partial<UserDto>) {
+    const data: any = {};
+
+    if (dto.username !== undefined) data.username = dto.username;
+    if (dto.email !== undefined) data.email = dto.email;
+    if (dto.courses_keys !== undefined) data.courses_keys = dto.courses_keys;
+    if (dto.roles !== undefined) data.roles = dto.roles;
 
     if (dto.password) {
       data.password = await bcrypt.hash(dto.password, SALT_ROUNDS);
     }
 
-    return this.prismaService.user.update({
-      where: { id },
-      data,
-    });
+    try {
+      return await this.prismaService.user.update({
+        where: { id },
+        data,
+      });
+    } catch (error) {
+      if (error.code === 'P2002') {
+        throw new BadRequestException('Email already exists');
+      }
+      throw error;
+    }
   }
 
   async remove(id: string) {

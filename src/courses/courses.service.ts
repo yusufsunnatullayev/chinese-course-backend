@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CourseDto } from './dto/course.dto';
 import { PrismaService } from 'src/prisma.service';
 
@@ -20,6 +20,25 @@ export class CoursesService {
     return this.prismaService.course.findUnique({
       where: { id },
       include: { lessons: true },
+    });
+  }
+
+  async findUserCourses(id: string) {
+    const user = await this.prismaService.user.findUnique({
+      where: { id },
+      select: { courses_keys: true },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    return this.prismaService.course.findMany({
+      where: {
+        title: {
+          in: user.courses_keys,
+        },
+      },
     });
   }
 
