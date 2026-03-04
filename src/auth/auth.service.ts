@@ -73,7 +73,7 @@ export class AuthService {
         roles: user.roles,
         deviceId,
       },
-      { expiresIn: '15m' },
+      { expiresIn: '1d' },
     );
 
     return { accessToken, refreshToken };
