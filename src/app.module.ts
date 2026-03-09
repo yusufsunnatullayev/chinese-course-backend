@@ -8,6 +8,7 @@ import { PrismaService } from './prisma.service';
 import { LessonsModule } from './lessons/lessons.module';
 import { CoursesModule } from './courses/courses.module';
 import { RolesGuard } from './auth/guards/roles.guard';
+import { CommentsModule } from './comments/comments.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { RolesGuard } from './auth/guards/roles.guard';
     UsersModule,
     LessonsModule,
     CoursesModule,
+    CommentsModule,
   ],
   controllers: [],
   providers: [

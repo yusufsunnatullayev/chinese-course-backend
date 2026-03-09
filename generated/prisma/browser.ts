@@ -42,3 +42,8 @@ export type Course = Prisma.CourseModel
  * 
  */
 export type Lesson = Prisma.LessonModel
+/**
+ * Model Comment
+ * 
+ */
+export type Comment = Prisma.CommentModel

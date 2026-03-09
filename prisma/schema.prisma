@@ -52,6 +52,7 @@ model Course {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   lessons   Lesson[]
+  comments  Comment[]
 }
 
 model Lesson {
@@ -67,6 +68,16 @@ model Lesson {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   course    Course   @relation(fields: [courseId], references: [id])
+}
+
+model Comment {
+    id        String   @id @default(cuid())
+    comment   String
+    userId    String
+    courseId  String
+    course    Course   @relation(fields: [courseId], references: [id])
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
 }
 
 enum Role {
