@@ -32,3 +32,15 @@ export class UserDto {
   @IsEnum(Role, { each: true })
   roles: Role[];
 }
+
+export class UserCredentialsDto {
+  @ApiProperty({ default: 'user' })
+  @IsString()
+  @IsNotEmpty()
+  username: string;
+
+  @ApiProperty({ default: '123456' })
+  @IsString()
+  @IsNotEmpty()
+  password: string;
+}

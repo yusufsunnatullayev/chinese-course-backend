@@ -6,11 +6,9 @@ import {
   Param,
   Patch,
   Post,
-  Put,
 } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
-import { UserDto } from './dto/user.dto';
-import { Public } from 'src/auth/decorators/public.decorator';
+import { UserCredentialsDto, UserDto } from './dto/user.dto';
 import { ApiBearerAuth, ApiBody } from '@nestjs/swagger';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { Role } from 'generated/prisma/enums';
@@ -38,6 +36,16 @@ export class UsersController {
   @ApiBody({ type: UserDto })
   @Patch('update/:id')
   updateUser(@Param('id') id: string, @Body() userDto: Partial<UserDto>) {
+    return this.usersService.updateUser(id, userDto);
+  }
+
+  @Roles(Role.USER)
+  @ApiBody({ type: UserCredentialsDto })
+  @Patch('update/credentials/:id')
+  updateUserCredentials(
+    @Param('id') id: string,
+    @Body() userDto: Partial<UserCredentialsDto>,
+  ) {
     return this.usersService.updateUser(id, userDto);
   }
 
