@@ -9,6 +9,8 @@ import { LessonsModule } from './lessons/lessons.module';
 import { CoursesModule } from './courses/courses.module';
 import { RolesGuard } from './auth/guards/roles.guard';
 import { CommentsModule } from './comments/comments.module';
+import { DictionaryCategoriesModule } from './dictionary-categories/dictionary-categories.module';
+import { DictionariesModule } from './dictionaries/dictionaries.module';
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { CommentsModule } from './comments/comments.module';
     LessonsModule,
     CoursesModule,
     CommentsModule,
+    DictionaryCategoriesModule,
+    DictionariesModule,
   ],
   controllers: [],
   providers: [

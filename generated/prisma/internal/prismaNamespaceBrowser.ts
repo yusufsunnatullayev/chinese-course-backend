@@ -56,7 +56,9 @@ export const ModelName = {
   Session: 'Session',
   Course: 'Course',
   Lesson: 'Lesson',
-  Comment: 'Comment'
+  Comment: 'Comment',
+  DictionaryCategory: 'DictionaryCategory',
+  Dictionary: 'Dictionary'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -152,6 +154,34 @@ export const CommentScalarFieldEnum = {
 } as const
 
 export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
+
+
+export const DictionaryCategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DictionaryCategoryScalarFieldEnum = (typeof DictionaryCategoryScalarFieldEnum)[keyof typeof DictionaryCategoryScalarFieldEnum]
+
+
+export const DictionaryScalarFieldEnum = {
+  id: 'id',
+  categoryId: 'categoryId',
+  courseId: 'courseId',
+  lessonId: 'lessonId',
+  word_uz: 'word_uz',
+  word_en: 'word_en',
+  word_chinese: 'word_chinese',
+  example_uz: 'example_uz',
+  example_en: 'example_en',
+  example_chinese: 'example_chinese',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DictionaryScalarFieldEnum = (typeof DictionaryScalarFieldEnum)[keyof typeof DictionaryScalarFieldEnum]
 
 
 export const SortOrder = {

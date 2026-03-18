@@ -242,6 +242,7 @@ export type CourseWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"Course"> | Date | string
   lessons?: Prisma.LessonListRelationFilter
   comments?: Prisma.CommentListRelationFilter
+  dictionaries?: Prisma.DictionaryListRelationFilter
 }
 
 export type CourseOrderByWithRelationInput = {
@@ -255,6 +256,7 @@ export type CourseOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   lessons?: Prisma.LessonOrderByRelationAggregateInput
   comments?: Prisma.CommentOrderByRelationAggregateInput
+  dictionaries?: Prisma.DictionaryOrderByRelationAggregateInput
 }
 
 export type CourseWhereUniqueInput = Prisma.AtLeast<{
@@ -271,6 +273,7 @@ export type CourseWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"Course"> | Date | string
   lessons?: Prisma.LessonListRelationFilter
   comments?: Prisma.CommentListRelationFilter
+  dictionaries?: Prisma.DictionaryListRelationFilter
 }, "id" | "title">
 
 export type CourseOrderByWithAggregationInput = {
@@ -314,6 +317,7 @@ export type CourseCreateInput = {
   updatedAt?: Date | string
   lessons?: Prisma.LessonCreateNestedManyWithoutCourseInput
   comments?: Prisma.CommentCreateNestedManyWithoutCourseInput
+  dictionaries?: Prisma.DictionaryCreateNestedManyWithoutCourseInput
 }
 
 export type CourseUncheckedCreateInput = {
@@ -327,6 +331,7 @@ export type CourseUncheckedCreateInput = {
   updatedAt?: Date | string
   lessons?: Prisma.LessonUncheckedCreateNestedManyWithoutCourseInput
   comments?: Prisma.CommentUncheckedCreateNestedManyWithoutCourseInput
+  dictionaries?: Prisma.DictionaryUncheckedCreateNestedManyWithoutCourseInput
 }
 
 export type CourseUpdateInput = {
@@ -340,6 +345,7 @@ export type CourseUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lessons?: Prisma.LessonUpdateManyWithoutCourseNestedInput
   comments?: Prisma.CommentUpdateManyWithoutCourseNestedInput
+  dictionaries?: Prisma.DictionaryUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseUncheckedUpdateInput = {
@@ -353,6 +359,7 @@ export type CourseUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lessons?: Prisma.LessonUncheckedUpdateManyWithoutCourseNestedInput
   comments?: Prisma.CommentUncheckedUpdateManyWithoutCourseNestedInput
+  dictionaries?: Prisma.DictionaryUncheckedUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseCreateManyInput = {
@@ -470,6 +477,20 @@ export type CourseUpdateOneRequiredWithoutCommentsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.CourseUpdateToOneWithWhereWithoutCommentsInput, Prisma.CourseUpdateWithoutCommentsInput>, Prisma.CourseUncheckedUpdateWithoutCommentsInput>
 }
 
+export type CourseCreateNestedOneWithoutDictionariesInput = {
+  create?: Prisma.XOR<Prisma.CourseCreateWithoutDictionariesInput, Prisma.CourseUncheckedCreateWithoutDictionariesInput>
+  connectOrCreate?: Prisma.CourseCreateOrConnectWithoutDictionariesInput
+  connect?: Prisma.CourseWhereUniqueInput
+}
+
+export type CourseUpdateOneRequiredWithoutDictionariesNestedInput = {
+  create?: Prisma.XOR<Prisma.CourseCreateWithoutDictionariesInput, Prisma.CourseUncheckedCreateWithoutDictionariesInput>
+  connectOrCreate?: Prisma.CourseCreateOrConnectWithoutDictionariesInput
+  upsert?: Prisma.CourseUpsertWithoutDictionariesInput
+  connect?: Prisma.CourseWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CourseUpdateToOneWithWhereWithoutDictionariesInput, Prisma.CourseUpdateWithoutDictionariesInput>, Prisma.CourseUncheckedUpdateWithoutDictionariesInput>
+}
+
 export type CourseCreateWithoutLessonsInput = {
   id?: string
   title: string
@@ -480,6 +501,7 @@ export type CourseCreateWithoutLessonsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   comments?: Prisma.CommentCreateNestedManyWithoutCourseInput
+  dictionaries?: Prisma.DictionaryCreateNestedManyWithoutCourseInput
 }
 
 export type CourseUncheckedCreateWithoutLessonsInput = {
@@ -492,6 +514,7 @@ export type CourseUncheckedCreateWithoutLessonsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   comments?: Prisma.CommentUncheckedCreateNestedManyWithoutCourseInput
+  dictionaries?: Prisma.DictionaryUncheckedCreateNestedManyWithoutCourseInput
 }
 
 export type CourseCreateOrConnectWithoutLessonsInput = {
@@ -520,6 +543,7 @@ export type CourseUpdateWithoutLessonsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   comments?: Prisma.CommentUpdateManyWithoutCourseNestedInput
+  dictionaries?: Prisma.DictionaryUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseUncheckedUpdateWithoutLessonsInput = {
@@ -532,6 +556,7 @@ export type CourseUncheckedUpdateWithoutLessonsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   comments?: Prisma.CommentUncheckedUpdateManyWithoutCourseNestedInput
+  dictionaries?: Prisma.DictionaryUncheckedUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseCreateWithoutCommentsInput = {
@@ -544,6 +569,7 @@ export type CourseCreateWithoutCommentsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   lessons?: Prisma.LessonCreateNestedManyWithoutCourseInput
+  dictionaries?: Prisma.DictionaryCreateNestedManyWithoutCourseInput
 }
 
 export type CourseUncheckedCreateWithoutCommentsInput = {
@@ -556,6 +582,7 @@ export type CourseUncheckedCreateWithoutCommentsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   lessons?: Prisma.LessonUncheckedCreateNestedManyWithoutCourseInput
+  dictionaries?: Prisma.DictionaryUncheckedCreateNestedManyWithoutCourseInput
 }
 
 export type CourseCreateOrConnectWithoutCommentsInput = {
@@ -584,6 +611,7 @@ export type CourseUpdateWithoutCommentsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lessons?: Prisma.LessonUpdateManyWithoutCourseNestedInput
+  dictionaries?: Prisma.DictionaryUpdateManyWithoutCourseNestedInput
 }
 
 export type CourseUncheckedUpdateWithoutCommentsInput = {
@@ -596,6 +624,75 @@ export type CourseUncheckedUpdateWithoutCommentsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lessons?: Prisma.LessonUncheckedUpdateManyWithoutCourseNestedInput
+  dictionaries?: Prisma.DictionaryUncheckedUpdateManyWithoutCourseNestedInput
+}
+
+export type CourseCreateWithoutDictionariesInput = {
+  id?: string
+  title: string
+  author: string
+  price: number
+  image: string
+  description: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  lessons?: Prisma.LessonCreateNestedManyWithoutCourseInput
+  comments?: Prisma.CommentCreateNestedManyWithoutCourseInput
+}
+
+export type CourseUncheckedCreateWithoutDictionariesInput = {
+  id?: string
+  title: string
+  author: string
+  price: number
+  image: string
+  description: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  lessons?: Prisma.LessonUncheckedCreateNestedManyWithoutCourseInput
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutCourseInput
+}
+
+export type CourseCreateOrConnectWithoutDictionariesInput = {
+  where: Prisma.CourseWhereUniqueInput
+  create: Prisma.XOR<Prisma.CourseCreateWithoutDictionariesInput, Prisma.CourseUncheckedCreateWithoutDictionariesInput>
+}
+
+export type CourseUpsertWithoutDictionariesInput = {
+  update: Prisma.XOR<Prisma.CourseUpdateWithoutDictionariesInput, Prisma.CourseUncheckedUpdateWithoutDictionariesInput>
+  create: Prisma.XOR<Prisma.CourseCreateWithoutDictionariesInput, Prisma.CourseUncheckedCreateWithoutDictionariesInput>
+  where?: Prisma.CourseWhereInput
+}
+
+export type CourseUpdateToOneWithWhereWithoutDictionariesInput = {
+  where?: Prisma.CourseWhereInput
+  data: Prisma.XOR<Prisma.CourseUpdateWithoutDictionariesInput, Prisma.CourseUncheckedUpdateWithoutDictionariesInput>
+}
+
+export type CourseUpdateWithoutDictionariesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.IntFieldUpdateOperationsInput | number
+  image?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  lessons?: Prisma.LessonUpdateManyWithoutCourseNestedInput
+  comments?: Prisma.CommentUpdateManyWithoutCourseNestedInput
+}
+
+export type CourseUncheckedUpdateWithoutDictionariesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.IntFieldUpdateOperationsInput | number
+  image?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  lessons?: Prisma.LessonUncheckedUpdateManyWithoutCourseNestedInput
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutCourseNestedInput
 }
 
 
@@ -606,11 +703,13 @@ export type CourseUncheckedUpdateWithoutCommentsInput = {
 export type CourseCountOutputType = {
   lessons: number
   comments: number
+  dictionaries: number
 }
 
 export type CourseCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   lessons?: boolean | CourseCountOutputTypeCountLessonsArgs
   comments?: boolean | CourseCountOutputTypeCountCommentsArgs
+  dictionaries?: boolean | CourseCountOutputTypeCountDictionariesArgs
 }
 
 /**
@@ -637,6 +736,13 @@ export type CourseCountOutputTypeCountCommentsArgs<ExtArgs extends runtime.Types
   where?: Prisma.CommentWhereInput
 }
 
+/**
+ * CourseCountOutputType without action
+ */
+export type CourseCountOutputTypeCountDictionariesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DictionaryWhereInput
+}
+
 
 export type CourseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -649,6 +755,7 @@ export type CourseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   updatedAt?: boolean
   lessons?: boolean | Prisma.Course$lessonsArgs<ExtArgs>
   comments?: boolean | Prisma.Course$commentsArgs<ExtArgs>
+  dictionaries?: boolean | Prisma.Course$dictionariesArgs<ExtArgs>
   _count?: boolean | Prisma.CourseCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["course"]>
 
@@ -689,6 +796,7 @@ export type CourseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 export type CourseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   lessons?: boolean | Prisma.Course$lessonsArgs<ExtArgs>
   comments?: boolean | Prisma.Course$commentsArgs<ExtArgs>
+  dictionaries?: boolean | Prisma.Course$dictionariesArgs<ExtArgs>
   _count?: boolean | Prisma.CourseCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type CourseIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -699,6 +807,7 @@ export type $CoursePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   objects: {
     lessons: Prisma.$LessonPayload<ExtArgs>[]
     comments: Prisma.$CommentPayload<ExtArgs>[]
+    dictionaries: Prisma.$DictionaryPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1105,6 +1214,7 @@ export interface Prisma__CourseClient<T, Null = never, ExtArgs extends runtime.T
   readonly [Symbol.toStringTag]: "PrismaPromise"
   lessons<T extends Prisma.Course$lessonsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Course$lessonsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   comments<T extends Prisma.Course$commentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Course$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  dictionaries<T extends Prisma.Course$dictionariesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Course$dictionariesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DictionaryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1575,6 +1685,30 @@ export type Course$commentsArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   distinct?: Prisma.CommentScalarFieldEnum | Prisma.CommentScalarFieldEnum[]
+}
+
+/**
+ * Course.dictionaries
+ */
+export type Course$dictionariesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Dictionary
+   */
+  select?: Prisma.DictionarySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Dictionary
+   */
+  omit?: Prisma.DictionaryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DictionaryInclude<ExtArgs> | null
+  where?: Prisma.DictionaryWhereInput
+  orderBy?: Prisma.DictionaryOrderByWithRelationInput | Prisma.DictionaryOrderByWithRelationInput[]
+  cursor?: Prisma.DictionaryWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DictionaryScalarFieldEnum | Prisma.DictionaryScalarFieldEnum[]
 }
 
 /**

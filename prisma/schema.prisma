@@ -53,6 +53,7 @@ model Course {
   updatedAt DateTime @updatedAt @map("updated_at")
   lessons   Lesson[]
   comments  Comment[]
+  dictionaries Dictionary[]
 }
 
 model Lesson {
@@ -68,6 +69,7 @@ model Lesson {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   course    Course   @relation(fields: [courseId], references: [id])
+  dictionaries Dictionary[]
 }
 
 model Comment {
@@ -78,6 +80,30 @@ model Comment {
     course    Course   @relation(fields: [courseId], references: [id])
     createdAt DateTime @default(now()) @map("created_at")
     updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model DictionaryCategory {
+    id        String   @id @default(cuid())
+    name      String
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Dictionary {
+    id                   String   @id @default(cuid())
+    categoryId           String
+    courseId             String
+    lessonId             String
+    word_uz              String
+    word_en              String
+    word_chinese         String
+    example_uz           String
+    example_en           String
+    example_chinese      String
+    createdAt            DateTime @default(now()) @map("created_at")
+    updatedAt            DateTime @updatedAt @map("updated_at")
+    course    Course   @relation(fields: [courseId], references: [id])
+    lesson    Lesson   @relation(fields: [lessonId], references: [id])
 }
 
 enum Role {

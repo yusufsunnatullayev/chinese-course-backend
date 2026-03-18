@@ -389,7 +389,9 @@ export const ModelName = {
   Session: 'Session',
   Course: 'Course',
   Lesson: 'Lesson',
-  Comment: 'Comment'
+  Comment: 'Comment',
+  DictionaryCategory: 'DictionaryCategory',
+  Dictionary: 'Dictionary'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -405,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "device" | "session" | "course" | "lesson" | "comment"
+    modelProps: "user" | "device" | "session" | "course" | "lesson" | "comment" | "dictionaryCategory" | "dictionary"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -853,6 +855,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    DictionaryCategory: {
+      payload: Prisma.$DictionaryCategoryPayload<ExtArgs>
+      fields: Prisma.DictionaryCategoryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.DictionaryCategoryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryCategoryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.DictionaryCategoryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryCategoryPayload>
+        }
+        findFirst: {
+          args: Prisma.DictionaryCategoryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryCategoryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.DictionaryCategoryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryCategoryPayload>
+        }
+        findMany: {
+          args: Prisma.DictionaryCategoryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryCategoryPayload>[]
+        }
+        create: {
+          args: Prisma.DictionaryCategoryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryCategoryPayload>
+        }
+        createMany: {
+          args: Prisma.DictionaryCategoryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.DictionaryCategoryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryCategoryPayload>[]
+        }
+        delete: {
+          args: Prisma.DictionaryCategoryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryCategoryPayload>
+        }
+        update: {
+          args: Prisma.DictionaryCategoryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryCategoryPayload>
+        }
+        deleteMany: {
+          args: Prisma.DictionaryCategoryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.DictionaryCategoryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.DictionaryCategoryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryCategoryPayload>[]
+        }
+        upsert: {
+          args: Prisma.DictionaryCategoryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryCategoryPayload>
+        }
+        aggregate: {
+          args: Prisma.DictionaryCategoryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateDictionaryCategory>
+        }
+        groupBy: {
+          args: Prisma.DictionaryCategoryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DictionaryCategoryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.DictionaryCategoryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DictionaryCategoryCountAggregateOutputType> | number
+        }
+      }
+    }
+    Dictionary: {
+      payload: Prisma.$DictionaryPayload<ExtArgs>
+      fields: Prisma.DictionaryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.DictionaryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.DictionaryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryPayload>
+        }
+        findFirst: {
+          args: Prisma.DictionaryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.DictionaryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryPayload>
+        }
+        findMany: {
+          args: Prisma.DictionaryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryPayload>[]
+        }
+        create: {
+          args: Prisma.DictionaryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryPayload>
+        }
+        createMany: {
+          args: Prisma.DictionaryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.DictionaryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryPayload>[]
+        }
+        delete: {
+          args: Prisma.DictionaryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryPayload>
+        }
+        update: {
+          args: Prisma.DictionaryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryPayload>
+        }
+        deleteMany: {
+          args: Prisma.DictionaryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.DictionaryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.DictionaryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryPayload>[]
+        }
+        upsert: {
+          args: Prisma.DictionaryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DictionaryPayload>
+        }
+        aggregate: {
+          args: Prisma.DictionaryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateDictionary>
+        }
+        groupBy: {
+          args: Prisma.DictionaryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DictionaryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.DictionaryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DictionaryCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -969,6 +1119,34 @@ export const CommentScalarFieldEnum = {
 } as const
 
 export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
+
+
+export const DictionaryCategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DictionaryCategoryScalarFieldEnum = (typeof DictionaryCategoryScalarFieldEnum)[keyof typeof DictionaryCategoryScalarFieldEnum]
+
+
+export const DictionaryScalarFieldEnum = {
+  id: 'id',
+  categoryId: 'categoryId',
+  courseId: 'courseId',
+  lessonId: 'lessonId',
+  word_uz: 'word_uz',
+  word_en: 'word_en',
+  word_chinese: 'word_chinese',
+  example_uz: 'example_uz',
+  example_en: 'example_en',
+  example_chinese: 'example_chinese',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DictionaryScalarFieldEnum = (typeof DictionaryScalarFieldEnum)[keyof typeof DictionaryScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1170,6 +1348,8 @@ export type GlobalOmitConfig = {
   course?: Prisma.CourseOmit
   lesson?: Prisma.LessonOmit
   comment?: Prisma.CommentOmit
+  dictionaryCategory?: Prisma.DictionaryCategoryOmit
+  dictionary?: Prisma.DictionaryOmit
 }
 
 /* Types for Logging */

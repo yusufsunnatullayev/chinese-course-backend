@@ -47,3 +47,13 @@ export type Lesson = Prisma.LessonModel
  * 
  */
 export type Comment = Prisma.CommentModel
+/**
+ * Model DictionaryCategory
+ * 
+ */
+export type DictionaryCategory = Prisma.DictionaryCategoryModel
+/**
+ * Model Dictionary
+ * 
+ */
+export type Dictionary = Prisma.DictionaryModel
