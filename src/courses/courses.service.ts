@@ -19,7 +19,7 @@ export class CoursesService {
   findOne(id: string) {
     return this.prismaService.course.findUnique({
       where: { id },
-      include: { lessons: true, comments: true },
+      include: { lessons: true, comments: true, dictionaries: true },
     });
   }
 

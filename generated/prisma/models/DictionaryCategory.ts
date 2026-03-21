@@ -27,6 +27,7 @@ export type AggregateDictionaryCategory = {
 export type DictionaryCategoryMinAggregateOutputType = {
   id: string | null
   name: string | null
+  isActive: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -34,6 +35,7 @@ export type DictionaryCategoryMinAggregateOutputType = {
 export type DictionaryCategoryMaxAggregateOutputType = {
   id: string | null
   name: string | null
+  isActive: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -41,6 +43,7 @@ export type DictionaryCategoryMaxAggregateOutputType = {
 export type DictionaryCategoryCountAggregateOutputType = {
   id: number
   name: number
+  isActive: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -50,6 +53,7 @@ export type DictionaryCategoryCountAggregateOutputType = {
 export type DictionaryCategoryMinAggregateInputType = {
   id?: true
   name?: true
+  isActive?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -57,6 +61,7 @@ export type DictionaryCategoryMinAggregateInputType = {
 export type DictionaryCategoryMaxAggregateInputType = {
   id?: true
   name?: true
+  isActive?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -64,6 +69,7 @@ export type DictionaryCategoryMaxAggregateInputType = {
 export type DictionaryCategoryCountAggregateInputType = {
   id?: true
   name?: true
+  isActive?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -144,6 +150,7 @@ export type DictionaryCategoryGroupByArgs<ExtArgs extends runtime.Types.Extensio
 export type DictionaryCategoryGroupByOutputType = {
   id: string
   name: string
+  isActive: boolean
   createdAt: Date
   updatedAt: Date
   _count: DictionaryCategoryCountAggregateOutputType | null
@@ -172,6 +179,7 @@ export type DictionaryCategoryWhereInput = {
   NOT?: Prisma.DictionaryCategoryWhereInput | Prisma.DictionaryCategoryWhereInput[]
   id?: Prisma.StringFilter<"DictionaryCategory"> | string
   name?: Prisma.StringFilter<"DictionaryCategory"> | string
+  isActive?: Prisma.BoolFilter<"DictionaryCategory"> | boolean
   createdAt?: Prisma.DateTimeFilter<"DictionaryCategory"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"DictionaryCategory"> | Date | string
 }
@@ -179,6 +187,7 @@ export type DictionaryCategoryWhereInput = {
 export type DictionaryCategoryOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -189,6 +198,7 @@ export type DictionaryCategoryWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.DictionaryCategoryWhereInput[]
   NOT?: Prisma.DictionaryCategoryWhereInput | Prisma.DictionaryCategoryWhereInput[]
   name?: Prisma.StringFilter<"DictionaryCategory"> | string
+  isActive?: Prisma.BoolFilter<"DictionaryCategory"> | boolean
   createdAt?: Prisma.DateTimeFilter<"DictionaryCategory"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"DictionaryCategory"> | Date | string
 }, "id">
@@ -196,6 +206,7 @@ export type DictionaryCategoryWhereUniqueInput = Prisma.AtLeast<{
 export type DictionaryCategoryOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.DictionaryCategoryCountOrderByAggregateInput
@@ -209,6 +220,7 @@ export type DictionaryCategoryScalarWhereWithAggregatesInput = {
   NOT?: Prisma.DictionaryCategoryScalarWhereWithAggregatesInput | Prisma.DictionaryCategoryScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"DictionaryCategory"> | string
   name?: Prisma.StringWithAggregatesFilter<"DictionaryCategory"> | string
+  isActive?: Prisma.BoolWithAggregatesFilter<"DictionaryCategory"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"DictionaryCategory"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"DictionaryCategory"> | Date | string
 }
@@ -216,6 +228,7 @@ export type DictionaryCategoryScalarWhereWithAggregatesInput = {
 export type DictionaryCategoryCreateInput = {
   id?: string
   name: string
+  isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -223,6 +236,7 @@ export type DictionaryCategoryCreateInput = {
 export type DictionaryCategoryUncheckedCreateInput = {
   id?: string
   name: string
+  isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -230,6 +244,7 @@ export type DictionaryCategoryUncheckedCreateInput = {
 export type DictionaryCategoryUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -237,6 +252,7 @@ export type DictionaryCategoryUpdateInput = {
 export type DictionaryCategoryUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -244,6 +260,7 @@ export type DictionaryCategoryUncheckedUpdateInput = {
 export type DictionaryCategoryCreateManyInput = {
   id?: string
   name: string
+  isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -251,6 +268,7 @@ export type DictionaryCategoryCreateManyInput = {
 export type DictionaryCategoryUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -258,6 +276,7 @@ export type DictionaryCategoryUpdateManyMutationInput = {
 export type DictionaryCategoryUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -265,6 +284,7 @@ export type DictionaryCategoryUncheckedUpdateManyInput = {
 export type DictionaryCategoryCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -272,6 +292,7 @@ export type DictionaryCategoryCountOrderByAggregateInput = {
 export type DictionaryCategoryMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -279,6 +300,7 @@ export type DictionaryCategoryMaxOrderByAggregateInput = {
 export type DictionaryCategoryMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -288,6 +310,7 @@ export type DictionaryCategoryMinOrderByAggregateInput = {
 export type DictionaryCategorySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  isActive?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["dictionaryCategory"]>
@@ -295,6 +318,7 @@ export type DictionaryCategorySelect<ExtArgs extends runtime.Types.Extensions.In
 export type DictionaryCategorySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  isActive?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["dictionaryCategory"]>
@@ -302,6 +326,7 @@ export type DictionaryCategorySelectCreateManyAndReturn<ExtArgs extends runtime.
 export type DictionaryCategorySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  isActive?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["dictionaryCategory"]>
@@ -309,11 +334,12 @@ export type DictionaryCategorySelectUpdateManyAndReturn<ExtArgs extends runtime.
 export type DictionaryCategorySelectScalar = {
   id?: boolean
   name?: boolean
+  isActive?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type DictionaryCategoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt", ExtArgs["result"]["dictionaryCategory"]>
+export type DictionaryCategoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["dictionaryCategory"]>
 
 export type $DictionaryCategoryPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "DictionaryCategory"
@@ -321,6 +347,7 @@ export type $DictionaryCategoryPayload<ExtArgs extends runtime.Types.Extensions.
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
+    isActive: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["dictionaryCategory"]>
@@ -748,6 +775,7 @@ export interface Prisma__DictionaryCategoryClient<T, Null = never, ExtArgs exten
 export interface DictionaryCategoryFieldRefs {
   readonly id: Prisma.FieldRef<"DictionaryCategory", 'String'>
   readonly name: Prisma.FieldRef<"DictionaryCategory", 'String'>
+  readonly isActive: Prisma.FieldRef<"DictionaryCategory", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"DictionaryCategory", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"DictionaryCategory", 'DateTime'>
 }

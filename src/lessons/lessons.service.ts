@@ -19,6 +19,7 @@ export class LessonsService {
   findOne(id: string) {
     return this.prismaService.lesson.findUnique({
       where: { id },
+      include: { dictionaries: true },
     });
   }
 
