@@ -51,4 +51,9 @@ export class DictionaryDto {
   @IsString()
   @IsNotEmpty()
   pronunciation: string;
+
+  @ApiProperty({ default: 'I like apple' })
+  @IsString()
+  @IsNotEmpty()
+  example_pronunciation: string;
 }

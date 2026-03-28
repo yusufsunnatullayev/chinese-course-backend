@@ -36,6 +36,7 @@ export type DictionaryMinAggregateOutputType = {
   example_en: string | null
   example_chinese: string | null
   pronunciation: string | null
+  example_pronunciation: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -52,6 +53,7 @@ export type DictionaryMaxAggregateOutputType = {
   example_en: string | null
   example_chinese: string | null
   pronunciation: string | null
+  example_pronunciation: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -68,6 +70,7 @@ export type DictionaryCountAggregateOutputType = {
   example_en: number
   example_chinese: number
   pronunciation: number
+  example_pronunciation: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -86,6 +89,7 @@ export type DictionaryMinAggregateInputType = {
   example_en?: true
   example_chinese?: true
   pronunciation?: true
+  example_pronunciation?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -102,6 +106,7 @@ export type DictionaryMaxAggregateInputType = {
   example_en?: true
   example_chinese?: true
   pronunciation?: true
+  example_pronunciation?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -118,6 +123,7 @@ export type DictionaryCountAggregateInputType = {
   example_en?: true
   example_chinese?: true
   pronunciation?: true
+  example_pronunciation?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -207,6 +213,7 @@ export type DictionaryGroupByOutputType = {
   example_en: string
   example_chinese: string
   pronunciation: string
+  example_pronunciation: string
   createdAt: Date
   updatedAt: Date
   _count: DictionaryCountAggregateOutputType | null
@@ -244,6 +251,7 @@ export type DictionaryWhereInput = {
   example_en?: Prisma.StringFilter<"Dictionary"> | string
   example_chinese?: Prisma.StringFilter<"Dictionary"> | string
   pronunciation?: Prisma.StringFilter<"Dictionary"> | string
+  example_pronunciation?: Prisma.StringFilter<"Dictionary"> | string
   createdAt?: Prisma.DateTimeFilter<"Dictionary"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Dictionary"> | Date | string
   course?: Prisma.XOR<Prisma.CourseScalarRelationFilter, Prisma.CourseWhereInput>
@@ -262,6 +270,7 @@ export type DictionaryOrderByWithRelationInput = {
   example_en?: Prisma.SortOrder
   example_chinese?: Prisma.SortOrder
   pronunciation?: Prisma.SortOrder
+  example_pronunciation?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   course?: Prisma.CourseOrderByWithRelationInput
@@ -283,6 +292,7 @@ export type DictionaryWhereUniqueInput = Prisma.AtLeast<{
   example_en?: Prisma.StringFilter<"Dictionary"> | string
   example_chinese?: Prisma.StringFilter<"Dictionary"> | string
   pronunciation?: Prisma.StringFilter<"Dictionary"> | string
+  example_pronunciation?: Prisma.StringFilter<"Dictionary"> | string
   createdAt?: Prisma.DateTimeFilter<"Dictionary"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Dictionary"> | Date | string
   course?: Prisma.XOR<Prisma.CourseScalarRelationFilter, Prisma.CourseWhereInput>
@@ -301,6 +311,7 @@ export type DictionaryOrderByWithAggregationInput = {
   example_en?: Prisma.SortOrder
   example_chinese?: Prisma.SortOrder
   pronunciation?: Prisma.SortOrder
+  example_pronunciation?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.DictionaryCountOrderByAggregateInput
@@ -323,6 +334,7 @@ export type DictionaryScalarWhereWithAggregatesInput = {
   example_en?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   example_chinese?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   pronunciation?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
+  example_pronunciation?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Dictionary"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Dictionary"> | Date | string
 }
@@ -337,6 +349,7 @@ export type DictionaryCreateInput = {
   example_en: string
   example_chinese: string
   pronunciation: string
+  example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
   course: Prisma.CourseCreateNestedOneWithoutDictionariesInput
@@ -355,6 +368,7 @@ export type DictionaryUncheckedCreateInput = {
   example_en: string
   example_chinese: string
   pronunciation: string
+  example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -369,6 +383,7 @@ export type DictionaryUpdateInput = {
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
+  example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   course?: Prisma.CourseUpdateOneRequiredWithoutDictionariesNestedInput
@@ -387,6 +402,7 @@ export type DictionaryUncheckedUpdateInput = {
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
+  example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -403,6 +419,7 @@ export type DictionaryCreateManyInput = {
   example_en: string
   example_chinese: string
   pronunciation: string
+  example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -417,6 +434,7 @@ export type DictionaryUpdateManyMutationInput = {
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
+  example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -433,6 +451,7 @@ export type DictionaryUncheckedUpdateManyInput = {
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
+  example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -459,6 +478,7 @@ export type DictionaryCountOrderByAggregateInput = {
   example_en?: Prisma.SortOrder
   example_chinese?: Prisma.SortOrder
   pronunciation?: Prisma.SortOrder
+  example_pronunciation?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -475,6 +495,7 @@ export type DictionaryMaxOrderByAggregateInput = {
   example_en?: Prisma.SortOrder
   example_chinese?: Prisma.SortOrder
   pronunciation?: Prisma.SortOrder
+  example_pronunciation?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -491,6 +512,7 @@ export type DictionaryMinOrderByAggregateInput = {
   example_en?: Prisma.SortOrder
   example_chinese?: Prisma.SortOrder
   pronunciation?: Prisma.SortOrder
+  example_pronunciation?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -589,6 +611,7 @@ export type DictionaryCreateWithoutCourseInput = {
   example_en: string
   example_chinese: string
   pronunciation: string
+  example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
   lesson: Prisma.LessonCreateNestedOneWithoutDictionariesInput
@@ -605,6 +628,7 @@ export type DictionaryUncheckedCreateWithoutCourseInput = {
   example_en: string
   example_chinese: string
   pronunciation: string
+  example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -650,6 +674,7 @@ export type DictionaryScalarWhereInput = {
   example_en?: Prisma.StringFilter<"Dictionary"> | string
   example_chinese?: Prisma.StringFilter<"Dictionary"> | string
   pronunciation?: Prisma.StringFilter<"Dictionary"> | string
+  example_pronunciation?: Prisma.StringFilter<"Dictionary"> | string
   createdAt?: Prisma.DateTimeFilter<"Dictionary"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Dictionary"> | Date | string
 }
@@ -664,6 +689,7 @@ export type DictionaryCreateWithoutLessonInput = {
   example_en: string
   example_chinese: string
   pronunciation: string
+  example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
   course: Prisma.CourseCreateNestedOneWithoutDictionariesInput
@@ -680,6 +706,7 @@ export type DictionaryUncheckedCreateWithoutLessonInput = {
   example_en: string
   example_chinese: string
   pronunciation: string
+  example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -721,6 +748,7 @@ export type DictionaryCreateManyCourseInput = {
   example_en: string
   example_chinese: string
   pronunciation: string
+  example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -735,6 +763,7 @@ export type DictionaryUpdateWithoutCourseInput = {
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
+  example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lesson?: Prisma.LessonUpdateOneRequiredWithoutDictionariesNestedInput
@@ -751,6 +780,7 @@ export type DictionaryUncheckedUpdateWithoutCourseInput = {
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
+  example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -766,6 +796,7 @@ export type DictionaryUncheckedUpdateManyWithoutCourseInput = {
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
+  example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -781,6 +812,7 @@ export type DictionaryCreateManyLessonInput = {
   example_en: string
   example_chinese: string
   pronunciation: string
+  example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -795,6 +827,7 @@ export type DictionaryUpdateWithoutLessonInput = {
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
+  example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   course?: Prisma.CourseUpdateOneRequiredWithoutDictionariesNestedInput
@@ -811,6 +844,7 @@ export type DictionaryUncheckedUpdateWithoutLessonInput = {
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
+  example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -826,6 +860,7 @@ export type DictionaryUncheckedUpdateManyWithoutLessonInput = {
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
+  example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -844,6 +879,7 @@ export type DictionarySelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   example_en?: boolean
   example_chinese?: boolean
   pronunciation?: boolean
+  example_pronunciation?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   course?: boolean | Prisma.CourseDefaultArgs<ExtArgs>
@@ -862,6 +898,7 @@ export type DictionarySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   example_en?: boolean
   example_chinese?: boolean
   pronunciation?: boolean
+  example_pronunciation?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   course?: boolean | Prisma.CourseDefaultArgs<ExtArgs>
@@ -880,6 +917,7 @@ export type DictionarySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   example_en?: boolean
   example_chinese?: boolean
   pronunciation?: boolean
+  example_pronunciation?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   course?: boolean | Prisma.CourseDefaultArgs<ExtArgs>
@@ -898,11 +936,12 @@ export type DictionarySelectScalar = {
   example_en?: boolean
   example_chinese?: boolean
   pronunciation?: boolean
+  example_pronunciation?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type DictionaryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "categoryId" | "courseId" | "lessonId" | "word_uz" | "word_en" | "word_chinese" | "example_uz" | "example_en" | "example_chinese" | "pronunciation" | "createdAt" | "updatedAt", ExtArgs["result"]["dictionary"]>
+export type DictionaryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "categoryId" | "courseId" | "lessonId" | "word_uz" | "word_en" | "word_chinese" | "example_uz" | "example_en" | "example_chinese" | "pronunciation" | "example_pronunciation" | "createdAt" | "updatedAt", ExtArgs["result"]["dictionary"]>
 export type DictionaryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   course?: boolean | Prisma.CourseDefaultArgs<ExtArgs>
   lesson?: boolean | Prisma.LessonDefaultArgs<ExtArgs>
@@ -934,6 +973,7 @@ export type $DictionaryPayload<ExtArgs extends runtime.Types.Extensions.Internal
     example_en: string
     example_chinese: string
     pronunciation: string
+    example_pronunciation: string
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["dictionary"]>
@@ -1372,6 +1412,7 @@ export interface DictionaryFieldRefs {
   readonly example_en: Prisma.FieldRef<"Dictionary", 'String'>
   readonly example_chinese: Prisma.FieldRef<"Dictionary", 'String'>
   readonly pronunciation: Prisma.FieldRef<"Dictionary", 'String'>
+  readonly example_pronunciation: Prisma.FieldRef<"Dictionary", 'String'>
   readonly createdAt: Prisma.FieldRef<"Dictionary", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Dictionary", 'DateTime'>
 }

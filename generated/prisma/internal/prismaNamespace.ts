@@ -1144,6 +1144,7 @@ export const DictionaryScalarFieldEnum = {
   example_en: 'example_en',
   example_chinese: 'example_chinese',
   pronunciation: 'pronunciation',
+  example_pronunciation: 'example_pronunciation',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
