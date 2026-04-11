@@ -26,11 +26,13 @@ export class DictionaryCategoriesController {
     return this.dictionaryCategoriesService.create(data);
   }
 
+  @Roles(Role.USER)
   @Get()
   findAll() {
     return this.dictionaryCategoriesService.findAll();
   }
 
+  @Roles(Role.USER)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.dictionaryCategoriesService.findOne(id);
