@@ -93,8 +93,8 @@ model DictionaryCategory {
 model Dictionary {
     id                   String   @id @default(cuid())
     categoryId           String
-    courseId             String
-    lessonId             String
+    courseId             String?  
+    lessonId             String?  
     word_uz              String
     word_en              String
     word_chinese         String
@@ -102,11 +102,12 @@ model Dictionary {
     example_en           String
     example_chinese      String
     pronunciation        String
-    example_pronunciation        String
+    example_pronunciation String
     createdAt            DateTime @default(now()) @map("created_at")
     updatedAt            DateTime @updatedAt @map("updated_at")
-    course    Course   @relation(fields: [courseId], references: [id])
-    lesson    Lesson   @relation(fields: [lessonId], references: [id])
+
+    course    Course?   @relation(fields: [courseId], references: [id])
+    lesson    Lesson?   @relation(fields: [lessonId], references: [id])
 }
 
 enum Role {

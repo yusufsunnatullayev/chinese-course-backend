@@ -494,9 +494,9 @@ export type LessonSumOrderByAggregateInput = {
   duration?: Prisma.SortOrder
 }
 
-export type LessonScalarRelationFilter = {
-  is?: Prisma.LessonWhereInput
-  isNot?: Prisma.LessonWhereInput
+export type LessonNullableScalarRelationFilter = {
+  is?: Prisma.LessonWhereInput | null
+  isNot?: Prisma.LessonWhereInput | null
 }
 
 export type LessonCreateNestedManyWithoutCourseInput = {
@@ -556,10 +556,12 @@ export type LessonCreateNestedOneWithoutDictionariesInput = {
   connect?: Prisma.LessonWhereUniqueInput
 }
 
-export type LessonUpdateOneRequiredWithoutDictionariesNestedInput = {
+export type LessonUpdateOneWithoutDictionariesNestedInput = {
   create?: Prisma.XOR<Prisma.LessonCreateWithoutDictionariesInput, Prisma.LessonUncheckedCreateWithoutDictionariesInput>
   connectOrCreate?: Prisma.LessonCreateOrConnectWithoutDictionariesInput
   upsert?: Prisma.LessonUpsertWithoutDictionariesInput
+  disconnect?: Prisma.LessonWhereInput | boolean
+  delete?: Prisma.LessonWhereInput | boolean
   connect?: Prisma.LessonWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.LessonUpdateToOneWithWhereWithoutDictionariesInput, Prisma.LessonUpdateWithoutDictionariesInput>, Prisma.LessonUncheckedUpdateWithoutDictionariesInput>
 }

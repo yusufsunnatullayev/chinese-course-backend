@@ -441,6 +441,11 @@ export type CourseScalarRelationFilter = {
   isNot?: Prisma.CourseWhereInput
 }
 
+export type CourseNullableScalarRelationFilter = {
+  is?: Prisma.CourseWhereInput | null
+  isNot?: Prisma.CourseWhereInput | null
+}
+
 export type IntFieldUpdateOperationsInput = {
   set?: number
   increment?: number
@@ -483,10 +488,12 @@ export type CourseCreateNestedOneWithoutDictionariesInput = {
   connect?: Prisma.CourseWhereUniqueInput
 }
 
-export type CourseUpdateOneRequiredWithoutDictionariesNestedInput = {
+export type CourseUpdateOneWithoutDictionariesNestedInput = {
   create?: Prisma.XOR<Prisma.CourseCreateWithoutDictionariesInput, Prisma.CourseUncheckedCreateWithoutDictionariesInput>
   connectOrCreate?: Prisma.CourseCreateOrConnectWithoutDictionariesInput
   upsert?: Prisma.CourseUpsertWithoutDictionariesInput
+  disconnect?: Prisma.CourseWhereInput | boolean
+  delete?: Prisma.CourseWhereInput | boolean
   connect?: Prisma.CourseWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.CourseUpdateToOneWithWhereWithoutDictionariesInput, Prisma.CourseUpdateWithoutDictionariesInput>, Prisma.CourseUncheckedUpdateWithoutDictionariesInput>
 }

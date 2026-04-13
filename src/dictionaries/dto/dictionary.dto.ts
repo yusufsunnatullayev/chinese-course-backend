@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsNotEmpty } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class DictionaryDto {
   @ApiProperty({ default: '' })
@@ -7,14 +7,14 @@ export class DictionaryDto {
   @IsNotEmpty()
   categoryId: string;
 
+  @IsOptional()
   @ApiProperty({ default: '' })
   @IsString()
-  @IsNotEmpty()
   courseId: string;
 
+  @IsOptional()
   @ApiProperty({ default: '' })
   @IsString()
-  @IsNotEmpty()
   lessonId: string;
 
   @ApiProperty({ default: 'olma' })

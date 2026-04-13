@@ -204,8 +204,8 @@ export type DictionaryGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 export type DictionaryGroupByOutputType = {
   id: string
   categoryId: string
-  courseId: string
-  lessonId: string
+  courseId: string | null
+  lessonId: string | null
   word_uz: string
   word_en: string
   word_chinese: string
@@ -242,8 +242,8 @@ export type DictionaryWhereInput = {
   NOT?: Prisma.DictionaryWhereInput | Prisma.DictionaryWhereInput[]
   id?: Prisma.StringFilter<"Dictionary"> | string
   categoryId?: Prisma.StringFilter<"Dictionary"> | string
-  courseId?: Prisma.StringFilter<"Dictionary"> | string
-  lessonId?: Prisma.StringFilter<"Dictionary"> | string
+  courseId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
+  lessonId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
   word_uz?: Prisma.StringFilter<"Dictionary"> | string
   word_en?: Prisma.StringFilter<"Dictionary"> | string
   word_chinese?: Prisma.StringFilter<"Dictionary"> | string
@@ -254,15 +254,15 @@ export type DictionaryWhereInput = {
   example_pronunciation?: Prisma.StringFilter<"Dictionary"> | string
   createdAt?: Prisma.DateTimeFilter<"Dictionary"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Dictionary"> | Date | string
-  course?: Prisma.XOR<Prisma.CourseScalarRelationFilter, Prisma.CourseWhereInput>
-  lesson?: Prisma.XOR<Prisma.LessonScalarRelationFilter, Prisma.LessonWhereInput>
+  course?: Prisma.XOR<Prisma.CourseNullableScalarRelationFilter, Prisma.CourseWhereInput> | null
+  lesson?: Prisma.XOR<Prisma.LessonNullableScalarRelationFilter, Prisma.LessonWhereInput> | null
 }
 
 export type DictionaryOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
-  courseId?: Prisma.SortOrder
-  lessonId?: Prisma.SortOrder
+  courseId?: Prisma.SortOrderInput | Prisma.SortOrder
+  lessonId?: Prisma.SortOrderInput | Prisma.SortOrder
   word_uz?: Prisma.SortOrder
   word_en?: Prisma.SortOrder
   word_chinese?: Prisma.SortOrder
@@ -283,8 +283,8 @@ export type DictionaryWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.DictionaryWhereInput[]
   NOT?: Prisma.DictionaryWhereInput | Prisma.DictionaryWhereInput[]
   categoryId?: Prisma.StringFilter<"Dictionary"> | string
-  courseId?: Prisma.StringFilter<"Dictionary"> | string
-  lessonId?: Prisma.StringFilter<"Dictionary"> | string
+  courseId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
+  lessonId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
   word_uz?: Prisma.StringFilter<"Dictionary"> | string
   word_en?: Prisma.StringFilter<"Dictionary"> | string
   word_chinese?: Prisma.StringFilter<"Dictionary"> | string
@@ -295,15 +295,15 @@ export type DictionaryWhereUniqueInput = Prisma.AtLeast<{
   example_pronunciation?: Prisma.StringFilter<"Dictionary"> | string
   createdAt?: Prisma.DateTimeFilter<"Dictionary"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Dictionary"> | Date | string
-  course?: Prisma.XOR<Prisma.CourseScalarRelationFilter, Prisma.CourseWhereInput>
-  lesson?: Prisma.XOR<Prisma.LessonScalarRelationFilter, Prisma.LessonWhereInput>
+  course?: Prisma.XOR<Prisma.CourseNullableScalarRelationFilter, Prisma.CourseWhereInput> | null
+  lesson?: Prisma.XOR<Prisma.LessonNullableScalarRelationFilter, Prisma.LessonWhereInput> | null
 }, "id">
 
 export type DictionaryOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
-  courseId?: Prisma.SortOrder
-  lessonId?: Prisma.SortOrder
+  courseId?: Prisma.SortOrderInput | Prisma.SortOrder
+  lessonId?: Prisma.SortOrderInput | Prisma.SortOrder
   word_uz?: Prisma.SortOrder
   word_en?: Prisma.SortOrder
   word_chinese?: Prisma.SortOrder
@@ -325,8 +325,8 @@ export type DictionaryScalarWhereWithAggregatesInput = {
   NOT?: Prisma.DictionaryScalarWhereWithAggregatesInput | Prisma.DictionaryScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   categoryId?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
-  courseId?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
-  lessonId?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
+  courseId?: Prisma.StringNullableWithAggregatesFilter<"Dictionary"> | string | null
+  lessonId?: Prisma.StringNullableWithAggregatesFilter<"Dictionary"> | string | null
   word_uz?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   word_en?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   word_chinese?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
@@ -352,15 +352,15 @@ export type DictionaryCreateInput = {
   example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  course: Prisma.CourseCreateNestedOneWithoutDictionariesInput
-  lesson: Prisma.LessonCreateNestedOneWithoutDictionariesInput
+  course?: Prisma.CourseCreateNestedOneWithoutDictionariesInput
+  lesson?: Prisma.LessonCreateNestedOneWithoutDictionariesInput
 }
 
 export type DictionaryUncheckedCreateInput = {
   id?: string
   categoryId: string
-  courseId: string
-  lessonId: string
+  courseId?: string | null
+  lessonId?: string | null
   word_uz: string
   word_en: string
   word_chinese: string
@@ -386,15 +386,15 @@ export type DictionaryUpdateInput = {
   example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  course?: Prisma.CourseUpdateOneRequiredWithoutDictionariesNestedInput
-  lesson?: Prisma.LessonUpdateOneRequiredWithoutDictionariesNestedInput
+  course?: Prisma.CourseUpdateOneWithoutDictionariesNestedInput
+  lesson?: Prisma.LessonUpdateOneWithoutDictionariesNestedInput
 }
 
 export type DictionaryUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
-  courseId?: Prisma.StringFieldUpdateOperationsInput | string
-  lessonId?: Prisma.StringFieldUpdateOperationsInput | string
+  courseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lessonId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
@@ -410,8 +410,8 @@ export type DictionaryUncheckedUpdateInput = {
 export type DictionaryCreateManyInput = {
   id?: string
   categoryId: string
-  courseId: string
-  lessonId: string
+  courseId?: string | null
+  lessonId?: string | null
   word_uz: string
   word_en: string
   word_chinese: string
@@ -442,8 +442,8 @@ export type DictionaryUpdateManyMutationInput = {
 export type DictionaryUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
-  courseId?: Prisma.StringFieldUpdateOperationsInput | string
-  lessonId?: Prisma.StringFieldUpdateOperationsInput | string
+  courseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lessonId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
@@ -601,6 +601,10 @@ export type DictionaryUncheckedUpdateManyWithoutLessonNestedInput = {
   deleteMany?: Prisma.DictionaryScalarWhereInput | Prisma.DictionaryScalarWhereInput[]
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
 export type DictionaryCreateWithoutCourseInput = {
   id?: string
   categoryId: string
@@ -614,13 +618,13 @@ export type DictionaryCreateWithoutCourseInput = {
   example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  lesson: Prisma.LessonCreateNestedOneWithoutDictionariesInput
+  lesson?: Prisma.LessonCreateNestedOneWithoutDictionariesInput
 }
 
 export type DictionaryUncheckedCreateWithoutCourseInput = {
   id?: string
   categoryId: string
-  lessonId: string
+  lessonId?: string | null
   word_uz: string
   word_en: string
   word_chinese: string
@@ -665,8 +669,8 @@ export type DictionaryScalarWhereInput = {
   NOT?: Prisma.DictionaryScalarWhereInput | Prisma.DictionaryScalarWhereInput[]
   id?: Prisma.StringFilter<"Dictionary"> | string
   categoryId?: Prisma.StringFilter<"Dictionary"> | string
-  courseId?: Prisma.StringFilter<"Dictionary"> | string
-  lessonId?: Prisma.StringFilter<"Dictionary"> | string
+  courseId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
+  lessonId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
   word_uz?: Prisma.StringFilter<"Dictionary"> | string
   word_en?: Prisma.StringFilter<"Dictionary"> | string
   word_chinese?: Prisma.StringFilter<"Dictionary"> | string
@@ -692,13 +696,13 @@ export type DictionaryCreateWithoutLessonInput = {
   example_pronunciation: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  course: Prisma.CourseCreateNestedOneWithoutDictionariesInput
+  course?: Prisma.CourseCreateNestedOneWithoutDictionariesInput
 }
 
 export type DictionaryUncheckedCreateWithoutLessonInput = {
   id?: string
   categoryId: string
-  courseId: string
+  courseId?: string | null
   word_uz: string
   word_en: string
   word_chinese: string
@@ -740,7 +744,7 @@ export type DictionaryUpdateManyWithWhereWithoutLessonInput = {
 export type DictionaryCreateManyCourseInput = {
   id?: string
   categoryId: string
-  lessonId: string
+  lessonId?: string | null
   word_uz: string
   word_en: string
   word_chinese: string
@@ -766,13 +770,13 @@ export type DictionaryUpdateWithoutCourseInput = {
   example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  lesson?: Prisma.LessonUpdateOneRequiredWithoutDictionariesNestedInput
+  lesson?: Prisma.LessonUpdateOneWithoutDictionariesNestedInput
 }
 
 export type DictionaryUncheckedUpdateWithoutCourseInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
-  lessonId?: Prisma.StringFieldUpdateOperationsInput | string
+  lessonId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
@@ -788,7 +792,7 @@ export type DictionaryUncheckedUpdateWithoutCourseInput = {
 export type DictionaryUncheckedUpdateManyWithoutCourseInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
-  lessonId?: Prisma.StringFieldUpdateOperationsInput | string
+  lessonId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
@@ -804,7 +808,7 @@ export type DictionaryUncheckedUpdateManyWithoutCourseInput = {
 export type DictionaryCreateManyLessonInput = {
   id?: string
   categoryId: string
-  courseId: string
+  courseId?: string | null
   word_uz: string
   word_en: string
   word_chinese: string
@@ -830,13 +834,13 @@ export type DictionaryUpdateWithoutLessonInput = {
   example_pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  course?: Prisma.CourseUpdateOneRequiredWithoutDictionariesNestedInput
+  course?: Prisma.CourseUpdateOneWithoutDictionariesNestedInput
 }
 
 export type DictionaryUncheckedUpdateWithoutLessonInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
-  courseId?: Prisma.StringFieldUpdateOperationsInput | string
+  courseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
@@ -852,7 +856,7 @@ export type DictionaryUncheckedUpdateWithoutLessonInput = {
 export type DictionaryUncheckedUpdateManyWithoutLessonInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
-  courseId?: Prisma.StringFieldUpdateOperationsInput | string
+  courseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
@@ -882,8 +886,8 @@ export type DictionarySelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   example_pronunciation?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  course?: boolean | Prisma.CourseDefaultArgs<ExtArgs>
-  lesson?: boolean | Prisma.LessonDefaultArgs<ExtArgs>
+  course?: boolean | Prisma.Dictionary$courseArgs<ExtArgs>
+  lesson?: boolean | Prisma.Dictionary$lessonArgs<ExtArgs>
 }, ExtArgs["result"]["dictionary"]>
 
 export type DictionarySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -901,8 +905,8 @@ export type DictionarySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   example_pronunciation?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  course?: boolean | Prisma.CourseDefaultArgs<ExtArgs>
-  lesson?: boolean | Prisma.LessonDefaultArgs<ExtArgs>
+  course?: boolean | Prisma.Dictionary$courseArgs<ExtArgs>
+  lesson?: boolean | Prisma.Dictionary$lessonArgs<ExtArgs>
 }, ExtArgs["result"]["dictionary"]>
 
 export type DictionarySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -920,8 +924,8 @@ export type DictionarySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   example_pronunciation?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  course?: boolean | Prisma.CourseDefaultArgs<ExtArgs>
-  lesson?: boolean | Prisma.LessonDefaultArgs<ExtArgs>
+  course?: boolean | Prisma.Dictionary$courseArgs<ExtArgs>
+  lesson?: boolean | Prisma.Dictionary$lessonArgs<ExtArgs>
 }, ExtArgs["result"]["dictionary"]>
 
 export type DictionarySelectScalar = {
@@ -943,29 +947,29 @@ export type DictionarySelectScalar = {
 
 export type DictionaryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "categoryId" | "courseId" | "lessonId" | "word_uz" | "word_en" | "word_chinese" | "example_uz" | "example_en" | "example_chinese" | "pronunciation" | "example_pronunciation" | "createdAt" | "updatedAt", ExtArgs["result"]["dictionary"]>
 export type DictionaryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  course?: boolean | Prisma.CourseDefaultArgs<ExtArgs>
-  lesson?: boolean | Prisma.LessonDefaultArgs<ExtArgs>
+  course?: boolean | Prisma.Dictionary$courseArgs<ExtArgs>
+  lesson?: boolean | Prisma.Dictionary$lessonArgs<ExtArgs>
 }
 export type DictionaryIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  course?: boolean | Prisma.CourseDefaultArgs<ExtArgs>
-  lesson?: boolean | Prisma.LessonDefaultArgs<ExtArgs>
+  course?: boolean | Prisma.Dictionary$courseArgs<ExtArgs>
+  lesson?: boolean | Prisma.Dictionary$lessonArgs<ExtArgs>
 }
 export type DictionaryIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  course?: boolean | Prisma.CourseDefaultArgs<ExtArgs>
-  lesson?: boolean | Prisma.LessonDefaultArgs<ExtArgs>
+  course?: boolean | Prisma.Dictionary$courseArgs<ExtArgs>
+  lesson?: boolean | Prisma.Dictionary$lessonArgs<ExtArgs>
 }
 
 export type $DictionaryPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Dictionary"
   objects: {
-    course: Prisma.$CoursePayload<ExtArgs>
-    lesson: Prisma.$LessonPayload<ExtArgs>
+    course: Prisma.$CoursePayload<ExtArgs> | null
+    lesson: Prisma.$LessonPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     categoryId: string
-    courseId: string
-    lessonId: string
+    courseId: string | null
+    lessonId: string | null
     word_uz: string
     word_en: string
     word_chinese: string
@@ -1370,8 +1374,8 @@ readonly fields: DictionaryFieldRefs;
  */
 export interface Prisma__DictionaryClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  course<T extends Prisma.CourseDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CourseDefaultArgs<ExtArgs>>): Prisma.Prisma__CourseClient<runtime.Types.Result.GetResult<Prisma.$CoursePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  lesson<T extends Prisma.LessonDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.LessonDefaultArgs<ExtArgs>>): Prisma.Prisma__LessonClient<runtime.Types.Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  course<T extends Prisma.Dictionary$courseArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dictionary$courseArgs<ExtArgs>>): Prisma.Prisma__CourseClient<runtime.Types.Result.GetResult<Prisma.$CoursePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lesson<T extends Prisma.Dictionary$lessonArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dictionary$lessonArgs<ExtArgs>>): Prisma.Prisma__LessonClient<runtime.Types.Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1808,6 +1812,44 @@ export type DictionaryDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.In
    * Limit how many Dictionaries to delete.
    */
   limit?: number
+}
+
+/**
+ * Dictionary.course
+ */
+export type Dictionary$courseArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Course
+   */
+  select?: Prisma.CourseSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Course
+   */
+  omit?: Prisma.CourseOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CourseInclude<ExtArgs> | null
+  where?: Prisma.CourseWhereInput
+}
+
+/**
+ * Dictionary.lesson
+ */
+export type Dictionary$lessonArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Lesson
+   */
+  select?: Prisma.LessonSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Lesson
+   */
+  omit?: Prisma.LessonOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LessonInclude<ExtArgs> | null
+  where?: Prisma.LessonWhereInput
 }
 
 /**
