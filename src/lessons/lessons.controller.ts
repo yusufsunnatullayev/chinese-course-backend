@@ -6,12 +6,15 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { LessonsService } from './lessons.service';
 import { LessonDto } from './dto/lesson.dto';
 import { ApiBearerAuth, ApiBody } from '@nestjs/swagger';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { Role } from 'generated/prisma/enums';
+import { Public } from 'src/auth/decorators/public.decorator';
+import { LessonAccessGuard } from './guards/lesson-access.guard';
 
 @Roles(Role.ADMIN)
 @ApiBearerAuth('access-token')
@@ -30,7 +33,8 @@ export class LessonsController {
     return this.lessonsService.findAll();
   }
 
-  @Roles(Role.USER)
+  @Public()
+  @UseGuards(LessonAccessGuard)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.lessonsService.findOne(id);

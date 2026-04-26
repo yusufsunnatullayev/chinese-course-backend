@@ -24,47 +24,46 @@ export class AuthGuard implements CanActivate {
       context.getClass(),
     ]);
 
+    const request = context.switchToHttp().getRequest<Request>();
+    const token = this.extractTokenFromHeader(request);
+
+    if (token) {
+      try {
+        const payload = await this.jwtService.verifyAsync(token, {
+          secret: 'yusuffdeveloper_jwt_secret',
+        });
+
+        const { sub: userId, deviceId } = payload;
+
+        if (userId && deviceId) {
+          const session = await this.prisma.session.findUnique({
+            where: {
+              userId_deviceId: {
+                userId,
+                deviceId,
+              },
+            },
+          });
+
+          if (session && session.isActive) {
+            request['user'] = payload;
+          }
+        }
+      } catch (e) {
+        if (!isPublic) {
+          throw new UnauthorizedException('Invalid token');
+        }
+      }
+    }
+
     if (isPublic) {
       return true;
     }
 
-    const request = context.switchToHttp().getRequest<Request>();
-    const token = this.extractTokenFromHeader(request);
-
-    if (!token) {
-      throw new UnauthorizedException('No token provided');
+    if (!request['user']) {
+      throw new UnauthorizedException('No token provided or session expired');
     }
 
-    let payload: any;
-
-    try {
-      payload = await this.jwtService.verifyAsync(token, {
-        secret: 'yusuffdeveloper_jwt_secret',
-      });
-    } catch {
-      throw new UnauthorizedException('Invalid token');
-    }
-
-    const { sub: userId, deviceId } = payload;
-
-    if (!userId || !deviceId) {
-      throw new UnauthorizedException('Invalid token payload');
-    }
-
-    const session = await this.prisma.session.findUnique({
-      where: {
-        userId_deviceId: {
-          userId,
-          deviceId,
-        },
-      },
-    });
-
-    if (!session || !session.isActive) {
-      throw new UnauthorizedException('Session expired or logged in elsewhere');
-    }
-
-    request['user'] = payload;
     return true;
   }
 
