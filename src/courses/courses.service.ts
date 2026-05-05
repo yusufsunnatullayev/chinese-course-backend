@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CourseDto } from './dto/course.dto';
 import { PrismaService } from 'src/prisma.service';
+import { Prisma } from 'generated/prisma/client';
 
 @Injectable()
 export class CoursesService {
@@ -8,7 +9,10 @@ export class CoursesService {
 
   create(dto: CourseDto) {
     return this.prismaService.course.create({
-      data: dto,
+      data: {
+        ...dto,
+        pricePlans: dto.pricePlans as unknown as Prisma.InputJsonValue,
+      },
     });
   }
 
@@ -45,7 +49,10 @@ export class CoursesService {
   update(id: string, dto: Partial<CourseDto>) {
     return this.prismaService.course.update({
       where: { id },
-      data: dto,
+      data: {
+        ...dto,
+        pricePlans: dto.pricePlans as unknown as Prisma.InputJsonValue,
+      },
     });
   }
 

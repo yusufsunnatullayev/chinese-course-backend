@@ -48,7 +48,9 @@ model Course {
   author    String
   price     Int
   image     String
+  isPublic  Boolean  @default(false)
   description String
+  pricePlans  Json        @default("[]")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   lessons   Lesson[]
@@ -61,7 +63,7 @@ model Lesson {
   title     String
   description String
   level     String
-  duration  Int
+  duration  String
   video     String
   words     String[]
   isPublic  Boolean  @default(false)
@@ -113,4 +115,12 @@ model Dictionary {
 enum Role {
   USER
   ADMIN
+}
+
+enum PlanDuration {
+  MONTH_1
+  MONTH_3
+  MONTH_6
+  MONTH_12
+  FOREVER
 }

@@ -15,3 +15,14 @@ export const Role = {
 } as const
 
 export type Role = (typeof Role)[keyof typeof Role]
+
+
+export const PlanDuration = {
+  MONTH_1: 'MONTH_1',
+  MONTH_3: 'MONTH_3',
+  MONTH_6: 'MONTH_6',
+  MONTH_12: 'MONTH_12',
+  FOREVER: 'FOREVER'
+} as const
+
+export type PlanDuration = (typeof PlanDuration)[keyof typeof PlanDuration]

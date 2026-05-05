@@ -20,18 +20,8 @@ export type LessonModel = runtime.Types.Result.DefaultSelection<Prisma.$LessonPa
 
 export type AggregateLesson = {
   _count: LessonCountAggregateOutputType | null
-  _avg: LessonAvgAggregateOutputType | null
-  _sum: LessonSumAggregateOutputType | null
   _min: LessonMinAggregateOutputType | null
   _max: LessonMaxAggregateOutputType | null
-}
-
-export type LessonAvgAggregateOutputType = {
-  duration: number | null
-}
-
-export type LessonSumAggregateOutputType = {
-  duration: number | null
 }
 
 export type LessonMinAggregateOutputType = {
@@ -39,7 +29,7 @@ export type LessonMinAggregateOutputType = {
   title: string | null
   description: string | null
   level: string | null
-  duration: number | null
+  duration: string | null
   video: string | null
   isPublic: boolean | null
   courseId: string | null
@@ -52,7 +42,7 @@ export type LessonMaxAggregateOutputType = {
   title: string | null
   description: string | null
   level: string | null
-  duration: number | null
+  duration: string | null
   video: string | null
   isPublic: boolean | null
   courseId: string | null
@@ -75,14 +65,6 @@ export type LessonCountAggregateOutputType = {
   _all: number
 }
 
-
-export type LessonAvgAggregateInputType = {
-  duration?: true
-}
-
-export type LessonSumAggregateInputType = {
-  duration?: true
-}
 
 export type LessonMinAggregateInputType = {
   id?: true
@@ -163,18 +145,6 @@ export type LessonAggregateArgs<ExtArgs extends runtime.Types.Extensions.Interna
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: LessonAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: LessonSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: LessonMinAggregateInputType
@@ -205,8 +175,6 @@ export type LessonGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   _count?: LessonCountAggregateInputType | true
-  _avg?: LessonAvgAggregateInputType
-  _sum?: LessonSumAggregateInputType
   _min?: LessonMinAggregateInputType
   _max?: LessonMaxAggregateInputType
 }
@@ -216,7 +184,7 @@ export type LessonGroupByOutputType = {
   title: string
   description: string
   level: string
-  duration: number
+  duration: string
   video: string
   words: string[]
   isPublic: boolean
@@ -224,8 +192,6 @@ export type LessonGroupByOutputType = {
   createdAt: Date
   updatedAt: Date
   _count: LessonCountAggregateOutputType | null
-  _avg: LessonAvgAggregateOutputType | null
-  _sum: LessonSumAggregateOutputType | null
   _min: LessonMinAggregateOutputType | null
   _max: LessonMaxAggregateOutputType | null
 }
@@ -253,7 +219,7 @@ export type LessonWhereInput = {
   title?: Prisma.StringFilter<"Lesson"> | string
   description?: Prisma.StringFilter<"Lesson"> | string
   level?: Prisma.StringFilter<"Lesson"> | string
-  duration?: Prisma.IntFilter<"Lesson"> | number
+  duration?: Prisma.StringFilter<"Lesson"> | string
   video?: Prisma.StringFilter<"Lesson"> | string
   words?: Prisma.StringNullableListFilter<"Lesson">
   isPublic?: Prisma.BoolFilter<"Lesson"> | boolean
@@ -288,7 +254,7 @@ export type LessonWhereUniqueInput = Prisma.AtLeast<{
   title?: Prisma.StringFilter<"Lesson"> | string
   description?: Prisma.StringFilter<"Lesson"> | string
   level?: Prisma.StringFilter<"Lesson"> | string
-  duration?: Prisma.IntFilter<"Lesson"> | number
+  duration?: Prisma.StringFilter<"Lesson"> | string
   video?: Prisma.StringFilter<"Lesson"> | string
   words?: Prisma.StringNullableListFilter<"Lesson">
   isPublic?: Prisma.BoolFilter<"Lesson"> | boolean
@@ -312,10 +278,8 @@ export type LessonOrderByWithAggregationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.LessonCountOrderByAggregateInput
-  _avg?: Prisma.LessonAvgOrderByAggregateInput
   _max?: Prisma.LessonMaxOrderByAggregateInput
   _min?: Prisma.LessonMinOrderByAggregateInput
-  _sum?: Prisma.LessonSumOrderByAggregateInput
 }
 
 export type LessonScalarWhereWithAggregatesInput = {
@@ -326,7 +290,7 @@ export type LessonScalarWhereWithAggregatesInput = {
   title?: Prisma.StringWithAggregatesFilter<"Lesson"> | string
   description?: Prisma.StringWithAggregatesFilter<"Lesson"> | string
   level?: Prisma.StringWithAggregatesFilter<"Lesson"> | string
-  duration?: Prisma.IntWithAggregatesFilter<"Lesson"> | number
+  duration?: Prisma.StringWithAggregatesFilter<"Lesson"> | string
   video?: Prisma.StringWithAggregatesFilter<"Lesson"> | string
   words?: Prisma.StringNullableListFilter<"Lesson">
   isPublic?: Prisma.BoolWithAggregatesFilter<"Lesson"> | boolean
@@ -340,7 +304,7 @@ export type LessonCreateInput = {
   title: string
   description: string
   level: string
-  duration: number
+  duration: string
   video: string
   words?: Prisma.LessonCreatewordsInput | string[]
   isPublic?: boolean
@@ -355,7 +319,7 @@ export type LessonUncheckedCreateInput = {
   title: string
   description: string
   level: string
-  duration: number
+  duration: string
   video: string
   words?: Prisma.LessonCreatewordsInput | string[]
   isPublic?: boolean
@@ -370,7 +334,7 @@ export type LessonUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.StringFieldUpdateOperationsInput | string
-  duration?: Prisma.IntFieldUpdateOperationsInput | number
+  duration?: Prisma.StringFieldUpdateOperationsInput | string
   video?: Prisma.StringFieldUpdateOperationsInput | string
   words?: Prisma.LessonUpdatewordsInput | string[]
   isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -385,7 +349,7 @@ export type LessonUncheckedUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.StringFieldUpdateOperationsInput | string
-  duration?: Prisma.IntFieldUpdateOperationsInput | number
+  duration?: Prisma.StringFieldUpdateOperationsInput | string
   video?: Prisma.StringFieldUpdateOperationsInput | string
   words?: Prisma.LessonUpdatewordsInput | string[]
   isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -400,7 +364,7 @@ export type LessonCreateManyInput = {
   title: string
   description: string
   level: string
-  duration: number
+  duration: string
   video: string
   words?: Prisma.LessonCreatewordsInput | string[]
   isPublic?: boolean
@@ -414,7 +378,7 @@ export type LessonUpdateManyMutationInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.StringFieldUpdateOperationsInput | string
-  duration?: Prisma.IntFieldUpdateOperationsInput | number
+  duration?: Prisma.StringFieldUpdateOperationsInput | string
   video?: Prisma.StringFieldUpdateOperationsInput | string
   words?: Prisma.LessonUpdatewordsInput | string[]
   isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -427,7 +391,7 @@ export type LessonUncheckedUpdateManyInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.StringFieldUpdateOperationsInput | string
-  duration?: Prisma.IntFieldUpdateOperationsInput | number
+  duration?: Prisma.StringFieldUpdateOperationsInput | string
   video?: Prisma.StringFieldUpdateOperationsInput | string
   words?: Prisma.LessonUpdatewordsInput | string[]
   isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -460,10 +424,6 @@ export type LessonCountOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type LessonAvgOrderByAggregateInput = {
-  duration?: Prisma.SortOrder
-}
-
 export type LessonMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   title?: Prisma.SortOrder
@@ -488,10 +448,6 @@ export type LessonMinOrderByAggregateInput = {
   courseId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-}
-
-export type LessonSumOrderByAggregateInput = {
-  duration?: Prisma.SortOrder
 }
 
 export type LessonNullableScalarRelationFilter = {
@@ -571,7 +527,7 @@ export type LessonCreateWithoutCourseInput = {
   title: string
   description: string
   level: string
-  duration: number
+  duration: string
   video: string
   words?: Prisma.LessonCreatewordsInput | string[]
   isPublic?: boolean
@@ -585,7 +541,7 @@ export type LessonUncheckedCreateWithoutCourseInput = {
   title: string
   description: string
   level: string
-  duration: number
+  duration: string
   video: string
   words?: Prisma.LessonCreatewordsInput | string[]
   isPublic?: boolean
@@ -628,7 +584,7 @@ export type LessonScalarWhereInput = {
   title?: Prisma.StringFilter<"Lesson"> | string
   description?: Prisma.StringFilter<"Lesson"> | string
   level?: Prisma.StringFilter<"Lesson"> | string
-  duration?: Prisma.IntFilter<"Lesson"> | number
+  duration?: Prisma.StringFilter<"Lesson"> | string
   video?: Prisma.StringFilter<"Lesson"> | string
   words?: Prisma.StringNullableListFilter<"Lesson">
   isPublic?: Prisma.BoolFilter<"Lesson"> | boolean
@@ -642,7 +598,7 @@ export type LessonCreateWithoutDictionariesInput = {
   title: string
   description: string
   level: string
-  duration: number
+  duration: string
   video: string
   words?: Prisma.LessonCreatewordsInput | string[]
   isPublic?: boolean
@@ -656,7 +612,7 @@ export type LessonUncheckedCreateWithoutDictionariesInput = {
   title: string
   description: string
   level: string
-  duration: number
+  duration: string
   video: string
   words?: Prisma.LessonCreatewordsInput | string[]
   isPublic?: boolean
@@ -686,7 +642,7 @@ export type LessonUpdateWithoutDictionariesInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.StringFieldUpdateOperationsInput | string
-  duration?: Prisma.IntFieldUpdateOperationsInput | number
+  duration?: Prisma.StringFieldUpdateOperationsInput | string
   video?: Prisma.StringFieldUpdateOperationsInput | string
   words?: Prisma.LessonUpdatewordsInput | string[]
   isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -700,7 +656,7 @@ export type LessonUncheckedUpdateWithoutDictionariesInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.StringFieldUpdateOperationsInput | string
-  duration?: Prisma.IntFieldUpdateOperationsInput | number
+  duration?: Prisma.StringFieldUpdateOperationsInput | string
   video?: Prisma.StringFieldUpdateOperationsInput | string
   words?: Prisma.LessonUpdatewordsInput | string[]
   isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -714,7 +670,7 @@ export type LessonCreateManyCourseInput = {
   title: string
   description: string
   level: string
-  duration: number
+  duration: string
   video: string
   words?: Prisma.LessonCreatewordsInput | string[]
   isPublic?: boolean
@@ -727,7 +683,7 @@ export type LessonUpdateWithoutCourseInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.StringFieldUpdateOperationsInput | string
-  duration?: Prisma.IntFieldUpdateOperationsInput | number
+  duration?: Prisma.StringFieldUpdateOperationsInput | string
   video?: Prisma.StringFieldUpdateOperationsInput | string
   words?: Prisma.LessonUpdatewordsInput | string[]
   isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -741,7 +697,7 @@ export type LessonUncheckedUpdateWithoutCourseInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.StringFieldUpdateOperationsInput | string
-  duration?: Prisma.IntFieldUpdateOperationsInput | number
+  duration?: Prisma.StringFieldUpdateOperationsInput | string
   video?: Prisma.StringFieldUpdateOperationsInput | string
   words?: Prisma.LessonUpdatewordsInput | string[]
   isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -755,7 +711,7 @@ export type LessonUncheckedUpdateManyWithoutCourseInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.StringFieldUpdateOperationsInput | string
-  duration?: Prisma.IntFieldUpdateOperationsInput | number
+  duration?: Prisma.StringFieldUpdateOperationsInput | string
   video?: Prisma.StringFieldUpdateOperationsInput | string
   words?: Prisma.LessonUpdatewordsInput | string[]
   isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -879,7 +835,7 @@ export type $LessonPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     title: string
     description: string
     level: string
-    duration: number
+    duration: string
     video: string
     words: string[]
     isPublic: boolean
@@ -1315,7 +1271,7 @@ export interface LessonFieldRefs {
   readonly title: Prisma.FieldRef<"Lesson", 'String'>
   readonly description: Prisma.FieldRef<"Lesson", 'String'>
   readonly level: Prisma.FieldRef<"Lesson", 'String'>
-  readonly duration: Prisma.FieldRef<"Lesson", 'Int'>
+  readonly duration: Prisma.FieldRef<"Lesson", 'String'>
   readonly video: Prisma.FieldRef<"Lesson", 'String'>
   readonly words: Prisma.FieldRef<"Lesson", 'String[]'>
   readonly isPublic: Prisma.FieldRef<"Lesson", 'Boolean'>

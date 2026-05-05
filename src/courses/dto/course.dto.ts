@@ -1,5 +1,32 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { Type } from 'class-transformer';
+import {
+  IsArray,
+  IsBoolean,
+  IsEnum,
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
+
+export enum PlanDuration {
+  MONTH_1 = 'MONTH_1',
+  MONTH_3 = 'MONTH_3',
+  MONTH_6 = 'MONTH_6',
+  MONTH_12 = 'MONTH_12',
+  FOREVER = 'FOREVER',
+}
+
+export class PricePlanDto {
+  @ApiProperty({ enum: PlanDuration, example: PlanDuration.MONTH_1 })
+  @IsEnum(PlanDuration)
+  plan: PlanDuration;
+
+  @ApiProperty({ example: 50000 })
+  @IsNumber()
+  price: number;
+}
 
 export class CourseDto {
   @ApiProperty({ default: 'HSK book 1' })
@@ -32,4 +59,22 @@ export class CourseDto {
   @IsString()
   @IsNotEmpty()
   description: string;
+
+  @ApiProperty({ default: false })
+  @IsBoolean()
+  @IsNotEmpty()
+  isPublic: boolean;
+
+  @ApiProperty({
+    type: [PricePlanDto],
+    default: [],
+    example: [
+      { plan: PlanDuration.MONTH_1, price: 50000 },
+      { plan: PlanDuration.FOREVER, price: 100000 },
+    ],
+  })
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => PricePlanDto)
+  pricePlans: PricePlanDto[];
 }

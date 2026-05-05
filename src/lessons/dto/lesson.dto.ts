@@ -1,11 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  IsArray,
-  IsBoolean,
-  IsNotEmpty,
-  IsNumber,
-  IsString,
-} from 'class-validator';
+import { IsArray, IsBoolean, IsNotEmpty, IsString } from 'class-validator';
 
 export class LessonDto {
   @ApiProperty({ default: 'Lesson Title 1' })
@@ -27,9 +21,9 @@ export class LessonDto {
   level: string;
 
   @ApiProperty({ default: 12 })
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  duration: number;
+  duration: string;
 
   @ApiProperty({ default: ['hello', 'world'] })
   @IsArray()
