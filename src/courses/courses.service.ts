@@ -17,7 +17,16 @@ export class CoursesService {
   }
 
   findAll() {
-    return this.prismaService.course.findMany();
+    return this.prismaService.course.findMany({
+      include: {
+        _count: {
+          select: {
+            lessons: true,
+            dictionaries: true,
+          } as any,
+        },
+      },
+    });
   }
 
   findOne(id: string) {
