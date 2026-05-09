@@ -48,8 +48,16 @@ export class CoursesService {
 
     return this.prismaService.course.findMany({
       where: {
-        title: {
+        id: {
           in: user.courses_keys,
+        },
+      },
+      include: {
+        _count: {
+          select: {
+            lessons: true,
+            dictionaries: true,
+          },
         },
       },
     });
