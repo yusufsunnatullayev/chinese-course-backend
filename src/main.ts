@@ -35,15 +35,14 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('docs', app, document);
 
   // CORS
   app.enableCors({
     origin: [
       'http://localhost:3000',
       'https://mini-udemy-frontend.vercel.app',
-      // Railway production URL (replace with your actual app URL)
-      'http://chinese-course-backend-production.up.railway.app/',
+      'https://chinese-course-backend-production-0918.up.railway.app', // ✅ fix this
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
