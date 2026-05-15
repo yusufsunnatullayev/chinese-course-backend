@@ -42,7 +42,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:3000',
       'https://mini-udemy-frontend.vercel.app',
-      'https://chinese-course-backend-production-0918.up.railway.app', // ✅ fix this
+      'https://chinese-course-backend-production-0918.up.railway.app',
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
