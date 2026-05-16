@@ -12,6 +12,7 @@ import { DictionaryCategoryDto } from './dto/dictionary-category.dto';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { ApiBearerAuth, ApiBody } from '@nestjs/swagger';
 import { Role } from 'generated/prisma/enums';
+import { Public } from 'src/auth/decorators/public.decorator';
 
 @Roles(Role.ADMIN)
 @ApiBearerAuth('access-token')
@@ -26,7 +27,7 @@ export class DictionaryCategoriesController {
     return this.dictionaryCategoriesService.create(data);
   }
 
-  @Roles(Role.USER)
+  @Public()
   @Get()
   findAll() {
     return this.dictionaryCategoriesService.findAll();
