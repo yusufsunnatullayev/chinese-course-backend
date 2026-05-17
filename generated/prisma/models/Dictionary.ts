@@ -30,11 +30,9 @@ export type DictionaryMinAggregateOutputType = {
   courseId: string | null
   lessonId: string | null
   word_uz: string | null
-  word_ru: string | null
   word_en: string | null
   word_chinese: string | null
   example_uz: string | null
-  example_ru: string | null
   example_en: string | null
   example_chinese: string | null
   pronunciation: string | null
@@ -49,11 +47,9 @@ export type DictionaryMaxAggregateOutputType = {
   courseId: string | null
   lessonId: string | null
   word_uz: string | null
-  word_ru: string | null
   word_en: string | null
   word_chinese: string | null
   example_uz: string | null
-  example_ru: string | null
   example_en: string | null
   example_chinese: string | null
   pronunciation: string | null
@@ -68,11 +64,9 @@ export type DictionaryCountAggregateOutputType = {
   courseId: number
   lessonId: number
   word_uz: number
-  word_ru: number
   word_en: number
   word_chinese: number
   example_uz: number
-  example_ru: number
   example_en: number
   example_chinese: number
   pronunciation: number
@@ -89,11 +83,9 @@ export type DictionaryMinAggregateInputType = {
   courseId?: true
   lessonId?: true
   word_uz?: true
-  word_ru?: true
   word_en?: true
   word_chinese?: true
   example_uz?: true
-  example_ru?: true
   example_en?: true
   example_chinese?: true
   pronunciation?: true
@@ -108,11 +100,9 @@ export type DictionaryMaxAggregateInputType = {
   courseId?: true
   lessonId?: true
   word_uz?: true
-  word_ru?: true
   word_en?: true
   word_chinese?: true
   example_uz?: true
-  example_ru?: true
   example_en?: true
   example_chinese?: true
   pronunciation?: true
@@ -127,11 +117,9 @@ export type DictionaryCountAggregateInputType = {
   courseId?: true
   lessonId?: true
   word_uz?: true
-  word_ru?: true
   word_en?: true
   word_chinese?: true
   example_uz?: true
-  example_ru?: true
   example_en?: true
   example_chinese?: true
   pronunciation?: true
@@ -219,11 +207,9 @@ export type DictionaryGroupByOutputType = {
   courseId: string | null
   lessonId: string | null
   word_uz: string
-  word_ru: string
   word_en: string
   word_chinese: string
   example_uz: string
-  example_ru: string
   example_en: string
   example_chinese: string
   pronunciation: string
@@ -259,11 +245,9 @@ export type DictionaryWhereInput = {
   courseId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
   lessonId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
   word_uz?: Prisma.StringFilter<"Dictionary"> | string
-  word_ru?: Prisma.StringFilter<"Dictionary"> | string
   word_en?: Prisma.StringFilter<"Dictionary"> | string
   word_chinese?: Prisma.StringFilter<"Dictionary"> | string
   example_uz?: Prisma.StringFilter<"Dictionary"> | string
-  example_ru?: Prisma.StringFilter<"Dictionary"> | string
   example_en?: Prisma.StringFilter<"Dictionary"> | string
   example_chinese?: Prisma.StringFilter<"Dictionary"> | string
   pronunciation?: Prisma.StringFilter<"Dictionary"> | string
@@ -280,11 +264,9 @@ export type DictionaryOrderByWithRelationInput = {
   courseId?: Prisma.SortOrderInput | Prisma.SortOrder
   lessonId?: Prisma.SortOrderInput | Prisma.SortOrder
   word_uz?: Prisma.SortOrder
-  word_ru?: Prisma.SortOrder
   word_en?: Prisma.SortOrder
   word_chinese?: Prisma.SortOrder
   example_uz?: Prisma.SortOrder
-  example_ru?: Prisma.SortOrder
   example_en?: Prisma.SortOrder
   example_chinese?: Prisma.SortOrder
   pronunciation?: Prisma.SortOrder
@@ -304,11 +286,9 @@ export type DictionaryWhereUniqueInput = Prisma.AtLeast<{
   courseId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
   lessonId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
   word_uz?: Prisma.StringFilter<"Dictionary"> | string
-  word_ru?: Prisma.StringFilter<"Dictionary"> | string
   word_en?: Prisma.StringFilter<"Dictionary"> | string
   word_chinese?: Prisma.StringFilter<"Dictionary"> | string
   example_uz?: Prisma.StringFilter<"Dictionary"> | string
-  example_ru?: Prisma.StringFilter<"Dictionary"> | string
   example_en?: Prisma.StringFilter<"Dictionary"> | string
   example_chinese?: Prisma.StringFilter<"Dictionary"> | string
   pronunciation?: Prisma.StringFilter<"Dictionary"> | string
@@ -325,11 +305,9 @@ export type DictionaryOrderByWithAggregationInput = {
   courseId?: Prisma.SortOrderInput | Prisma.SortOrder
   lessonId?: Prisma.SortOrderInput | Prisma.SortOrder
   word_uz?: Prisma.SortOrder
-  word_ru?: Prisma.SortOrder
   word_en?: Prisma.SortOrder
   word_chinese?: Prisma.SortOrder
   example_uz?: Prisma.SortOrder
-  example_ru?: Prisma.SortOrder
   example_en?: Prisma.SortOrder
   example_chinese?: Prisma.SortOrder
   pronunciation?: Prisma.SortOrder
@@ -350,11 +328,9 @@ export type DictionaryScalarWhereWithAggregatesInput = {
   courseId?: Prisma.StringNullableWithAggregatesFilter<"Dictionary"> | string | null
   lessonId?: Prisma.StringNullableWithAggregatesFilter<"Dictionary"> | string | null
   word_uz?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
-  word_ru?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   word_en?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   word_chinese?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   example_uz?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
-  example_ru?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   example_en?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   example_chinese?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
   pronunciation?: Prisma.StringWithAggregatesFilter<"Dictionary"> | string
@@ -367,11 +343,9 @@ export type DictionaryCreateInput = {
   id?: string
   categoryId: string
   word_uz: string
-  word_ru?: string
   word_en: string
   word_chinese: string
   example_uz: string
-  example_ru?: string
   example_en: string
   example_chinese: string
   pronunciation: string
@@ -388,11 +362,9 @@ export type DictionaryUncheckedCreateInput = {
   courseId?: string | null
   lessonId?: string | null
   word_uz: string
-  word_ru?: string
   word_en: string
   word_chinese: string
   example_uz: string
-  example_ru?: string
   example_en: string
   example_chinese: string
   pronunciation: string
@@ -405,11 +377,9 @@ export type DictionaryUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  word_ru?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   example_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  example_ru?: Prisma.StringFieldUpdateOperationsInput | string
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
@@ -426,11 +396,9 @@ export type DictionaryUncheckedUpdateInput = {
   courseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  word_ru?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   example_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  example_ru?: Prisma.StringFieldUpdateOperationsInput | string
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
@@ -445,11 +413,9 @@ export type DictionaryCreateManyInput = {
   courseId?: string | null
   lessonId?: string | null
   word_uz: string
-  word_ru?: string
   word_en: string
   word_chinese: string
   example_uz: string
-  example_ru?: string
   example_en: string
   example_chinese: string
   pronunciation: string
@@ -462,11 +428,9 @@ export type DictionaryUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  word_ru?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   example_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  example_ru?: Prisma.StringFieldUpdateOperationsInput | string
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
@@ -481,11 +445,9 @@ export type DictionaryUncheckedUpdateManyInput = {
   courseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  word_ru?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   example_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  example_ru?: Prisma.StringFieldUpdateOperationsInput | string
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
@@ -510,11 +472,9 @@ export type DictionaryCountOrderByAggregateInput = {
   courseId?: Prisma.SortOrder
   lessonId?: Prisma.SortOrder
   word_uz?: Prisma.SortOrder
-  word_ru?: Prisma.SortOrder
   word_en?: Prisma.SortOrder
   word_chinese?: Prisma.SortOrder
   example_uz?: Prisma.SortOrder
-  example_ru?: Prisma.SortOrder
   example_en?: Prisma.SortOrder
   example_chinese?: Prisma.SortOrder
   pronunciation?: Prisma.SortOrder
@@ -529,11 +489,9 @@ export type DictionaryMaxOrderByAggregateInput = {
   courseId?: Prisma.SortOrder
   lessonId?: Prisma.SortOrder
   word_uz?: Prisma.SortOrder
-  word_ru?: Prisma.SortOrder
   word_en?: Prisma.SortOrder
   word_chinese?: Prisma.SortOrder
   example_uz?: Prisma.SortOrder
-  example_ru?: Prisma.SortOrder
   example_en?: Prisma.SortOrder
   example_chinese?: Prisma.SortOrder
   pronunciation?: Prisma.SortOrder
@@ -548,11 +506,9 @@ export type DictionaryMinOrderByAggregateInput = {
   courseId?: Prisma.SortOrder
   lessonId?: Prisma.SortOrder
   word_uz?: Prisma.SortOrder
-  word_ru?: Prisma.SortOrder
   word_en?: Prisma.SortOrder
   word_chinese?: Prisma.SortOrder
   example_uz?: Prisma.SortOrder
-  example_ru?: Prisma.SortOrder
   example_en?: Prisma.SortOrder
   example_chinese?: Prisma.SortOrder
   pronunciation?: Prisma.SortOrder
@@ -653,11 +609,9 @@ export type DictionaryCreateWithoutCourseInput = {
   id?: string
   categoryId: string
   word_uz: string
-  word_ru?: string
   word_en: string
   word_chinese: string
   example_uz: string
-  example_ru?: string
   example_en: string
   example_chinese: string
   pronunciation: string
@@ -672,11 +626,9 @@ export type DictionaryUncheckedCreateWithoutCourseInput = {
   categoryId: string
   lessonId?: string | null
   word_uz: string
-  word_ru?: string
   word_en: string
   word_chinese: string
   example_uz: string
-  example_ru?: string
   example_en: string
   example_chinese: string
   pronunciation: string
@@ -720,11 +672,9 @@ export type DictionaryScalarWhereInput = {
   courseId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
   lessonId?: Prisma.StringNullableFilter<"Dictionary"> | string | null
   word_uz?: Prisma.StringFilter<"Dictionary"> | string
-  word_ru?: Prisma.StringFilter<"Dictionary"> | string
   word_en?: Prisma.StringFilter<"Dictionary"> | string
   word_chinese?: Prisma.StringFilter<"Dictionary"> | string
   example_uz?: Prisma.StringFilter<"Dictionary"> | string
-  example_ru?: Prisma.StringFilter<"Dictionary"> | string
   example_en?: Prisma.StringFilter<"Dictionary"> | string
   example_chinese?: Prisma.StringFilter<"Dictionary"> | string
   pronunciation?: Prisma.StringFilter<"Dictionary"> | string
@@ -737,11 +687,9 @@ export type DictionaryCreateWithoutLessonInput = {
   id?: string
   categoryId: string
   word_uz: string
-  word_ru?: string
   word_en: string
   word_chinese: string
   example_uz: string
-  example_ru?: string
   example_en: string
   example_chinese: string
   pronunciation: string
@@ -756,11 +704,9 @@ export type DictionaryUncheckedCreateWithoutLessonInput = {
   categoryId: string
   courseId?: string | null
   word_uz: string
-  word_ru?: string
   word_en: string
   word_chinese: string
   example_uz: string
-  example_ru?: string
   example_en: string
   example_chinese: string
   pronunciation: string
@@ -800,11 +746,9 @@ export type DictionaryCreateManyCourseInput = {
   categoryId: string
   lessonId?: string | null
   word_uz: string
-  word_ru?: string
   word_en: string
   word_chinese: string
   example_uz: string
-  example_ru?: string
   example_en: string
   example_chinese: string
   pronunciation: string
@@ -817,11 +761,9 @@ export type DictionaryUpdateWithoutCourseInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  word_ru?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   example_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  example_ru?: Prisma.StringFieldUpdateOperationsInput | string
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
@@ -836,11 +778,9 @@ export type DictionaryUncheckedUpdateWithoutCourseInput = {
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   lessonId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  word_ru?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   example_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  example_ru?: Prisma.StringFieldUpdateOperationsInput | string
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
@@ -854,11 +794,9 @@ export type DictionaryUncheckedUpdateManyWithoutCourseInput = {
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   lessonId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  word_ru?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   example_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  example_ru?: Prisma.StringFieldUpdateOperationsInput | string
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
@@ -872,11 +810,9 @@ export type DictionaryCreateManyLessonInput = {
   categoryId: string
   courseId?: string | null
   word_uz: string
-  word_ru?: string
   word_en: string
   word_chinese: string
   example_uz: string
-  example_ru?: string
   example_en: string
   example_chinese: string
   pronunciation: string
@@ -889,11 +825,9 @@ export type DictionaryUpdateWithoutLessonInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  word_ru?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   example_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  example_ru?: Prisma.StringFieldUpdateOperationsInput | string
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
@@ -908,11 +842,9 @@ export type DictionaryUncheckedUpdateWithoutLessonInput = {
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   courseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  word_ru?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   example_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  example_ru?: Prisma.StringFieldUpdateOperationsInput | string
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
@@ -926,11 +858,9 @@ export type DictionaryUncheckedUpdateManyWithoutLessonInput = {
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   courseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  word_ru?: Prisma.StringFieldUpdateOperationsInput | string
   word_en?: Prisma.StringFieldUpdateOperationsInput | string
   word_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   example_uz?: Prisma.StringFieldUpdateOperationsInput | string
-  example_ru?: Prisma.StringFieldUpdateOperationsInput | string
   example_en?: Prisma.StringFieldUpdateOperationsInput | string
   example_chinese?: Prisma.StringFieldUpdateOperationsInput | string
   pronunciation?: Prisma.StringFieldUpdateOperationsInput | string
@@ -947,11 +877,9 @@ export type DictionarySelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   courseId?: boolean
   lessonId?: boolean
   word_uz?: boolean
-  word_ru?: boolean
   word_en?: boolean
   word_chinese?: boolean
   example_uz?: boolean
-  example_ru?: boolean
   example_en?: boolean
   example_chinese?: boolean
   pronunciation?: boolean
@@ -968,11 +896,9 @@ export type DictionarySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   courseId?: boolean
   lessonId?: boolean
   word_uz?: boolean
-  word_ru?: boolean
   word_en?: boolean
   word_chinese?: boolean
   example_uz?: boolean
-  example_ru?: boolean
   example_en?: boolean
   example_chinese?: boolean
   pronunciation?: boolean
@@ -989,11 +915,9 @@ export type DictionarySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   courseId?: boolean
   lessonId?: boolean
   word_uz?: boolean
-  word_ru?: boolean
   word_en?: boolean
   word_chinese?: boolean
   example_uz?: boolean
-  example_ru?: boolean
   example_en?: boolean
   example_chinese?: boolean
   pronunciation?: boolean
@@ -1010,11 +934,9 @@ export type DictionarySelectScalar = {
   courseId?: boolean
   lessonId?: boolean
   word_uz?: boolean
-  word_ru?: boolean
   word_en?: boolean
   word_chinese?: boolean
   example_uz?: boolean
-  example_ru?: boolean
   example_en?: boolean
   example_chinese?: boolean
   pronunciation?: boolean
@@ -1023,7 +945,7 @@ export type DictionarySelectScalar = {
   updatedAt?: boolean
 }
 
-export type DictionaryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "categoryId" | "courseId" | "lessonId" | "word_uz" | "word_ru" | "word_en" | "word_chinese" | "example_uz" | "example_ru" | "example_en" | "example_chinese" | "pronunciation" | "example_pronunciation" | "createdAt" | "updatedAt", ExtArgs["result"]["dictionary"]>
+export type DictionaryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "categoryId" | "courseId" | "lessonId" | "word_uz" | "word_en" | "word_chinese" | "example_uz" | "example_en" | "example_chinese" | "pronunciation" | "example_pronunciation" | "createdAt" | "updatedAt", ExtArgs["result"]["dictionary"]>
 export type DictionaryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   course?: boolean | Prisma.Dictionary$courseArgs<ExtArgs>
   lesson?: boolean | Prisma.Dictionary$lessonArgs<ExtArgs>
@@ -1049,11 +971,9 @@ export type $DictionaryPayload<ExtArgs extends runtime.Types.Extensions.Internal
     courseId: string | null
     lessonId: string | null
     word_uz: string
-    word_ru: string
     word_en: string
     word_chinese: string
     example_uz: string
-    example_ru: string
     example_en: string
     example_chinese: string
     pronunciation: string
@@ -1490,11 +1410,9 @@ export interface DictionaryFieldRefs {
   readonly courseId: Prisma.FieldRef<"Dictionary", 'String'>
   readonly lessonId: Prisma.FieldRef<"Dictionary", 'String'>
   readonly word_uz: Prisma.FieldRef<"Dictionary", 'String'>
-  readonly word_ru: Prisma.FieldRef<"Dictionary", 'String'>
   readonly word_en: Prisma.FieldRef<"Dictionary", 'String'>
   readonly word_chinese: Prisma.FieldRef<"Dictionary", 'String'>
   readonly example_uz: Prisma.FieldRef<"Dictionary", 'String'>
-  readonly example_ru: Prisma.FieldRef<"Dictionary", 'String'>
   readonly example_en: Prisma.FieldRef<"Dictionary", 'String'>
   readonly example_chinese: Prisma.FieldRef<"Dictionary", 'String'>
   readonly pronunciation: Prisma.FieldRef<"Dictionary", 'String'>

@@ -22,11 +22,6 @@ export class DictionaryDto {
   @IsNotEmpty()
   word_uz: string;
 
-  @ApiProperty({ default: 'olma' })
-  @IsString()
-  @IsNotEmpty()
-  word_ru: string;
-
   @ApiProperty({ default: 'яблоки' })
   @IsString()
   @IsNotEmpty()
@@ -41,11 +36,6 @@ export class DictionaryDto {
   @IsString()
   @IsNotEmpty()
   example_uz: string;
-
-  @ApiProperty({ default: 'Я люблю яблоки.' })
-  @IsString()
-  @IsNotEmpty()
-  example_ru: string;
 
   @ApiProperty({ default: 'I like apple' })
   @IsString()

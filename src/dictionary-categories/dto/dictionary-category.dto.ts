@@ -7,16 +7,6 @@ export class DictionaryCategoryDto {
   @IsNotEmpty()
   name: string;
 
-  @ApiProperty({ default: '#333' })
-  @IsString()
-  @IsNotEmpty()
-  category_color: string;
-
-  @ApiProperty({ default: 'book' })
-  @IsString()
-  @IsNotEmpty()
-  category_icon: string;
-
   @ApiProperty({ default: true })
   @IsBoolean()
   @IsNotEmpty()
