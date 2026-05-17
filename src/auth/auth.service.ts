@@ -1,8 +1,4 @@
-import {
-  ForbiddenException,
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
@@ -27,52 +23,40 @@ export class AuthService {
     const valid = await bcrypt.compare(password, user.password);
     if (!valid) throw new UnauthorizedException();
 
-    // ✅ register device (max 2)
-    if (!user.devices.some((d) => d.deviceId === deviceId)) {
-      if (user.devices.length >= 2) {
-        throw new ForbiddenException('Device limit reached');
-      }
+    const isKnownDevice = user.devices.some((d) => d.deviceId === deviceId);
+
+    if (!isKnownDevice) {
+      // 🧹 Remove all old devices and their sessions before registering new one
+      await this.prismaService.session.deleteMany({
+        where: { userId: user.id },
+      });
+
+      await this.prismaService.device.deleteMany({
+        where: { userId: user.id },
+      });
 
       await this.prismaService.device.create({
         data: { userId: user.id, deviceId },
       });
+    } else {
+      // Same device — just wipe its session below (handled next)
+      await this.prismaService.session.deleteMany({
+        where: { userId: user.id, deviceId },
+      });
     }
 
-    // 🔴 delete existing sessions for this device
-    await this.prismaService.session.deleteMany({
-      where: {
-        userId: user.id,
-        deviceId,
-      },
-    });
-
-    // 🔐 create new session
+    // 🔐 Create new session
     const refreshToken = this.jwtService.sign(
-      {
-        sub: user.id,
-        userId: user.id,
-        roles: user.roles,
-        deviceId,
-      },
+      { sub: user.id, userId: user.id, roles: user.roles, deviceId },
       { expiresIn: '7d' },
     );
 
     await this.prismaService.session.create({
-      data: {
-        userId: user.id,
-        deviceId,
-        refreshToken,
-        isActive: true,
-      },
+      data: { userId: user.id, deviceId, refreshToken, isActive: true },
     });
 
     const accessToken = this.jwtService.sign(
-      {
-        sub: user.id,
-        userId: user.id,
-        roles: user.roles,
-        deviceId,
-      },
+      { sub: user.id, userId: user.id, roles: user.roles, deviceId },
       { expiresIn: '1d' },
     );
 
