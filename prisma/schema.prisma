@@ -87,6 +87,8 @@ model Comment {
 model DictionaryCategory {
     id        String   @id @default(cuid())
     name      String
+    category_color      String @default("#000000")
+    category_icon      String  @default("")
     isActive  Boolean  @default(true)
     createdAt DateTime @default(now()) @map("created_at")
     updatedAt DateTime @updatedAt @map("updated_at")
@@ -98,9 +100,11 @@ model Dictionary {
     courseId             String?  
     lessonId             String?  
     word_uz              String
+    word_ru              String   @default("")
     word_en              String
     word_chinese         String
     example_uz           String
+    example_ru           String   @default("")
     example_en           String
     example_chinese      String
     pronunciation        String

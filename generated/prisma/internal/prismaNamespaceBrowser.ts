@@ -161,6 +161,8 @@ export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeo
 export const DictionaryCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  category_color: 'category_color',
+  category_icon: 'category_icon',
   isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -175,9 +177,11 @@ export const DictionaryScalarFieldEnum = {
   courseId: 'courseId',
   lessonId: 'lessonId',
   word_uz: 'word_uz',
+  word_ru: 'word_ru',
   word_en: 'word_en',
   word_chinese: 'word_chinese',
   example_uz: 'example_uz',
+  example_ru: 'example_ru',
   example_en: 'example_en',
   example_chinese: 'example_chinese',
   pronunciation: 'pronunciation',
