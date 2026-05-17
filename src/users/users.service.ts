@@ -15,11 +15,16 @@ export class UsersService {
   constructor(private prismaService: PrismaService) {}
 
   async findAll() {
-    return await this.prismaService.user.findMany();
+    return await this.prismaService.user.findMany({
+      omit: { password: true },
+    });
   }
 
   async findOne(id: string) {
-    return await this.prismaService.user.findUnique({ where: { id } });
+    return await this.prismaService.user.findUnique({
+      where: { id },
+      omit: { password: true },
+    });
   }
 
   async createUser(dto: UserDto) {
